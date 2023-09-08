@@ -2,11 +2,30 @@
   "name": "@acpr/rate-limit-postgresql",
   "version": "1.0.0",
   "description": "A PostgreSQL store for the `express-rate-limit` middleware",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "types": "./dist/cjs/types/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "files": [
+    "dist/**/*"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/types/index.d.ts",
+        "default": "./dist/esm/index.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/types/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "clean": "rm -rf ./dist",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs && cp source/db/migrations/ dist/ -r",
+    "build:esm": "tsc -p ./configs/tsconfig.esm.json && mv dist/esm/index.js dist/esm/index.mjs",
+    "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
+    "prepack": "npm run build",
     "prepare": "husky install"
   },
   "keywords": [
@@ -32,8 +51,8 @@
     "postgres"
   ],
   "author": {
-		"name": "Adrian C. Prelipcean"
-	},
+    "name": "Adrian C. Prelipcean"
+  },
   "license": "MIT",
   "dependencies": {
     "express-rate-limit": "6.11.0",

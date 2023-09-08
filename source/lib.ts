@@ -76,7 +76,7 @@ class PostgresStore implements Store {
 			host: this.config['host'] || 'localhost',
 			port: this.config['port'] || 5432,
 		}
-		await migrate(dbConfig, __dirname + '/migrations')
+		await migrate(dbConfig, __dirname + '/../migrations')
 	}
 
 	/**
