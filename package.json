@@ -1,7 +1,7 @@
 {
   "name": "@acpr/rate-limit-postgresql",
   "version": "1.0.0",
-  "description": "",
+  "description": "A PostgreSQL store for the `express-rate-limit` middleware",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -9,24 +9,47 @@
     "build": "tsc",
     "prepare": "husky install"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "express-rate-limit",
+    "express-rate-limit-postgresql",
+    "express-rate-limit-postgres",
+    "express",
+    "rate",
+    "limit",
+    "ratelimit",
+    "rate-limit",
+    "middleware",
+    "ip",
+    "auth",
+    "authorization",
+    "security",
+    "brute",
+    "force",
+    "bruteforce",
+    "brute-force",
+    "attack",
+    "postgresql",
+    "postgres"
+  ],
+  "author": {
+		"name": "Adrian C. Prelipcean"
+	},
+  "license": "MIT",
   "dependencies": {
-    "express-rate-limit": "^6.11.0",
-    "pg": "^8.11.3",
-    "pg-pool": "^3.6.1",
-    "postgres-migrations": "^5.3.0"
+    "express-rate-limit": "6.11.0",
+    "pg": "8.11.3",
+    "pg-pool": "3.6.1",
+    "postgres-migrations": "5.3.0"
   },
   "devDependencies": {
-    "@express-rate-limit/prettier": "^1.1.0",
-    "@express-rate-limit/tsconfig": "^1.0.0",
-    "@types/express": "^4.17.17",
-    "@types/pg-pool": "^2.0.3",
-    "husky": "^8.0.3",
-    "lint-staged": "^14.0.1",
-    "prettier": "^3.0.3",
-    "typescript": "^5.2.2"
+    "@express-rate-limit/prettier": "1.1.0",
+    "@express-rate-limit/tsconfig": "1.0.0",
+    "@types/express": "4.17.17",
+    "@types/pg-pool": "2.0.3",
+    "husky": "8.0.3",
+    "lint-staged": "14.0.1",
+    "prettier": "3.0.3",
+    "typescript": "5.2.2"
   },
   "prettier": "@express-rate-limit/prettier",
   "lint-staged": {
