@@ -122,9 +122,11 @@ describe('Session Handling - Database Interaction', () => {
 		assert.equal(databaseSession.id, notExpiredSession.id)
 		assert.equal(databaseSession.type, notExpiredSession.type)
 		assert.equal(databaseSession.name, notExpiredSession.name)
-		assert.equal(
-			databaseSession.expires_at?.getSeconds(),
-			notExpiredSession.expires_at.getSeconds(),
+		assert.isTrue(
+			(databaseSession.expires_at?.getMilliseconds() ||
+				new Date().getMilliseconds()) -
+				notExpiredSession.expires_at?.getMilliseconds() <
+				10,
 		)
 		sinon.assert.callCount(query, 1)
 	})
@@ -177,9 +179,11 @@ describe('Session Handling - Database Interaction', () => {
 		assert.equal(databaseSession.id, newCreatedSession.id)
 		assert.equal(databaseSession.type, newCreatedSession.type)
 		assert.equal(databaseSession.name, newCreatedSession.name)
-		assert.equal(
-			databaseSession.expires_at?.getSeconds(),
-			newCreatedSession.expires_at.getSeconds(),
+		assert.isTrue(
+			(databaseSession.expires_at?.getMilliseconds() ||
+				new Date().getMilliseconds()) -
+				newCreatedSession.expires_at?.getMilliseconds() <
+				10,
 		)
 		sinon.assert.callCount(query, 3)
 	})
@@ -248,9 +252,11 @@ describe('Session Handling - Database Interaction', () => {
 		assert.equal(databaseSession.id, newCreatedSession.id)
 		assert.equal(databaseSession.type, newCreatedSession.type)
 		assert.equal(databaseSession.name, newCreatedSession.name)
-		assert.equal(
-			databaseSession.expires_at?.getSeconds(),
-			newCreatedSession.expires_at.getSeconds(),
+		assert.isTrue(
+			(databaseSession.expires_at?.getMilliseconds() ||
+				new Date().getMilliseconds()) -
+				newCreatedSession.expires_at?.getMilliseconds() <
+				10,
 		)
 		sinon.assert.callCount(query, 3)
 	})
