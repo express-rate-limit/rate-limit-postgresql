@@ -1,5 +1,5 @@
 import 'mocha'
-import { assert, expect } from 'chai'
+import { assert } from 'chai'
 import {
 	calculateNextResetTime,
 	getSession,

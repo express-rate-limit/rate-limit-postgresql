@@ -1,4 +1,5 @@
 import 'mocha'
+import { assert } from 'chai'
 
 import { Pool } from 'pg'
 import sinon, { SinonMock, SinonStub } from 'sinon'
@@ -56,12 +57,13 @@ describe('Postgres Store Aggregated IP', () => {
 
 	it('increment function should follow expected business logic', async () => {
 		let pool = new Pool()
+		let dbCount = 1
 
 		isSessionValidSpy.returns(true)
 		query.onFirstCall().returns({
 			rows: [
 				{
-					count: 1,
+					count: dbCount,
 				},
 			],
 		})
@@ -69,7 +71,7 @@ describe('Postgres Store Aggregated IP', () => {
 		testStore.pool = pool
 		testStore.session = newCreatedSession
 
-		await testStore.increment('key')
+		let incrementCount = await testStore.increment('key')
 		sinon.assert.callCount(isSessionValidSpy, 1)
 		sinon.assert.calledWith(
 			query,
@@ -80,6 +82,14 @@ describe('Postgres Store Aggregated IP', () => {
             RETURNING count
             `,
 			['key', newCreatedSession.id],
+		)
+		assert.equal(incrementCount.totalHits, dbCount)
+		assert.isTrue(
+			(incrementCount.resetTime?.getMilliseconds() ||
+				new Date().getMilliseconds()) -
+				(newCreatedSession.expires_at?.getMilliseconds() ||
+					new Date().getMilliseconds()) <
+				10,
 		)
 	})
 
