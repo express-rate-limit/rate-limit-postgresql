@@ -59,10 +59,6 @@ describe('Postgres Store Aggregated IP', () => {
 
 		isSessionValidSpy.returns(true)
 		query.onFirstCall().returns({
-			rows: [],
-		})
-
-		query.onSecondCall().returns({
 			rows: [
 				{
 					count: 1,
@@ -93,13 +89,6 @@ describe('Postgres Store Aggregated IP', () => {
 			rows: [],
 		})
 
-		query.onSecondCall().returns({
-			rows: [
-				{
-					count: 1,
-				},
-			],
-		})
 		let testStore = new PostgresStore({}, 'test')
 		testStore.pool = pool
 		testStore.session = newCreatedSession
@@ -122,13 +111,6 @@ describe('Postgres Store Aggregated IP', () => {
 			rows: [],
 		})
 
-		query.onSecondCall().returns({
-			rows: [
-				{
-					count: 1,
-				},
-			],
-		})
 		let testStore = new PostgresStore({}, 'test')
 		testStore.pool = pool
 		testStore.session = newCreatedSession
@@ -147,13 +129,6 @@ describe('Postgres Store Aggregated IP', () => {
 			rows: [],
 		})
 
-		query.onSecondCall().returns({
-			rows: [
-				{
-					count: 1,
-				},
-			],
-		})
 		let testStore = new PostgresStore({}, 'test')
 		testStore.pool = pool
 		testStore.session = newCreatedSession

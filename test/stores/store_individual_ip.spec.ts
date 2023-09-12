@@ -93,13 +93,6 @@ describe('Postgres Store Individual IP', () => {
 			rows: [],
 		})
 
-		query.onSecondCall().returns({
-			rows: [
-				{
-					count: 1,
-				},
-			],
-		})
 		let testStore = new PostgresStoreIndividualIP({}, 'test')
 		testStore.pool = pool
 		testStore.session = newCreatedSession
@@ -126,13 +119,6 @@ describe('Postgres Store Individual IP', () => {
 			rows: [],
 		})
 
-		query.onSecondCall().returns({
-			rows: [
-				{
-					count: 1,
-				},
-			],
-		})
 		let testStore = new PostgresStoreIndividualIP({}, 'test')
 		testStore.pool = pool
 		testStore.session = newCreatedSession
@@ -151,13 +137,6 @@ describe('Postgres Store Individual IP', () => {
 			rows: [],
 		})
 
-		query.onSecondCall().returns({
-			rows: [
-				{
-					count: 1,
-				},
-			],
-		})
 		let testStore = new PostgresStoreIndividualIP({}, 'test')
 		testStore.pool = pool
 		testStore.session = newCreatedSession
