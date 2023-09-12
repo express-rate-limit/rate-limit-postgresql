@@ -2,7 +2,7 @@ import 'mocha'
 
 import { Pool } from 'pg'
 import sinon, { SinonMock, SinonStub } from 'sinon'
-import { PostgresStoreIndividualIP } from '../../source'
+import { PostgresStore } from '../../source'
 import { Session } from '../../source/models/session'
 const session_handler = require('../../source/util/session_handler')
 const migration_handler = require('../../source/util/migration_handler')
@@ -12,7 +12,7 @@ class ClientMock {
 	release() {}
 }
 
-describe('Postgres Store Individual IP', () => {
+describe('Postgres Store Aggregated IP', () => {
 	let query: SinonStub
 	let connect: SinonStub
 	let client: SinonMock
@@ -50,7 +50,7 @@ describe('Postgres Store Individual IP', () => {
 	})
 
 	it('constructor should call correct functions', async () => {
-		new PostgresStoreIndividualIP({}, 'test')
+		new PostgresStore({}, 'test')
 		sinon.assert.callCount(applyMigrationsStub, 1)
 	})
 
@@ -69,7 +69,7 @@ describe('Postgres Store Individual IP', () => {
 				},
 			],
 		})
-		let testStore = new PostgresStoreIndividualIP({}, 'test')
+		let testStore = new PostgresStore({}, 'test')
 		testStore.pool = pool
 		testStore.session = newCreatedSession
 
@@ -77,12 +77,12 @@ describe('Postgres Store Individual IP', () => {
 		sinon.assert.callCount(isSessionValidSpy, 1)
 		sinon.assert.calledWith(
 			query,
-			'INSERT INTO rate_limit.individual_records(key, session_id) VALUES ($1, $2)',
-			['key', newCreatedSession.id],
-		)
-		sinon.assert.calledWith(
-			query,
-			'SELECT count(id) AS count FROM rate_limit.individual_records WHERE key = $1 AND session_id = $2',
+			`
+            INSERT INTO rate_limit.records_aggregated(key, session_id) VALUES ($1, $2)
+            ON CONFLICT ON CONSTRAINT unique_session_key DO UPDATE
+            SET count = records_aggregated.count + 1
+            RETURNING count
+            `,
 			['key', newCreatedSession.id],
 		)
 	})
@@ -100,19 +100,15 @@ describe('Postgres Store Individual IP', () => {
 				},
 			],
 		})
-		let testStore = new PostgresStoreIndividualIP({}, 'test')
+		let testStore = new PostgresStore({}, 'test')
 		testStore.pool = pool
 		testStore.session = newCreatedSession
 
 		await testStore.decrement('key')
 		let decrementQuery = `
-            WITH 
-            rows_to_delete AS (
-                SELECT id FROM rate_limit.individual_records
-                WHERE key = $1 and session_id = $2 ORDER BY registered_at LIMIT 1
-                )
-            DELETE FROM rate_limit.individual_records 
-              USING rows_to_delete WHERE individual_records.id = rows_to_delete.id            
+            UPDATE rate_limit.records_aggregated
+            SET count = greatest(0, count-1)
+            WHERE key = $1 and session_id = $2          
         `
 		sinon.assert.calledWith(query, decrementQuery, [
 			'key',
@@ -133,14 +129,14 @@ describe('Postgres Store Individual IP', () => {
 				},
 			],
 		})
-		let testStore = new PostgresStoreIndividualIP({}, 'test')
+		let testStore = new PostgresStore({}, 'test')
 		testStore.pool = pool
 		testStore.session = newCreatedSession
 
 		await testStore.resetKey('key')
 		let resetQuery = `
-            DELETE FROM rate_limit.individual_records
-            WHERE key = $1 AND session_id = $2
+            DELETE FROM rate_limit.records_aggregated
+            WHERE key = $1 and session_id = $2
             `
 		sinon.assert.calledWith(query, resetQuery, ['key', newCreatedSession.id])
 	})
@@ -158,13 +154,13 @@ describe('Postgres Store Individual IP', () => {
 				},
 			],
 		})
-		let testStore = new PostgresStoreIndividualIP({}, 'test')
+		let testStore = new PostgresStore({}, 'test')
 		testStore.pool = pool
 		testStore.session = newCreatedSession
 
 		await testStore.resetAll()
 		let resetAllQuery = `
-            DELETE FROM rate_limit.individual_records WHERE session_id = $1
+            DELETE FROM rate_limit.records_aggregated WHERE session_id = $1
             `
 		sinon.assert.calledWith(query, resetAllQuery, [newCreatedSession.id])
 	})
