@@ -22,7 +22,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf ./dist",
-    "build": "npm run clean && npm run build:esm && npm run build:cjs && cp source/db/migrations/ dist/ -r",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs && cp source/migrations/ dist/ -r",
     "build:esm": "tsc -p ./configs/tsconfig.esm.json && mv dist/esm/index.js dist/esm/index.mjs",
     "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
     "prepack": "npm run build",
