@@ -116,7 +116,7 @@ applied, etc.
 - `readme.md`: The file everyone should read before using the package. Contains
   installation and usage instructions.
 
-#### `./`
+#### `configs/`
 
 - `tsconfig.*.json`: The Typescript configuration files for this project.
 
