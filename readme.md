@@ -95,4 +95,4 @@ Both types of store take the same input in their constructor
 
 ## Installation
 
-Project license is specified in the [license file](license.md) Third party licenses are located in the [third_party_licenses folder](third_party_licenses)
+Project license is specified in the [license file](license.md). Third party licenses are located in the [third_party_licenses folder](third_party_licenses)
