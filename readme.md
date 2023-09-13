@@ -49,7 +49,7 @@ app.use(limiter);
 
 This library is provided in ESM as well as CJS forms, and works with both Javascript and Typescript projects.
 
-**This package requires you to use Node 14 or above.**
+**This package requires you to use Node 16 or above.**
 
 Import it in a CommonJS project (`type: commonjs` or no `type` field in `package.json`) as follows:
 
@@ -92,3 +92,7 @@ There are two different types of Postgres Stores:
 Both types of store take the same input in their constructor 
 - `config` - The database configuration as specified in the [node-postgres](https://node-postgres.com/apis/client) configuration.
 - `name` - The unique name of the session. This is useful when applying multiple rate limiters with multiple stores.
+
+## Installation
+
+Project license is specified in the [license file](license.md) Third party licenses are located in the [third_party_licenses folder](third_party_licenses)
