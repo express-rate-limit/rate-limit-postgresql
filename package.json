@@ -31,6 +31,8 @@
     "build": "npm run clean && npm run build:esm && npm run build:cjs && cp source/migrations/ dist/ -r",
     "build:esm": "tsc -p ./configs/tsconfig.esm.json && mv dist/esm/index.js dist/esm/index.mjs",
     "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
+    "lint": "prettier --check .",
+    "lint-autofix": "prettier --write .",
     "prepack": "npm run build",
     "prepare": "husky install",
     "generate-dev-licenses": "./node_modules/license-checker-rseidelsohn/bin/license-checker-rseidelsohn --limitAttributes licenses,repository,publisher,email --json --development > third_party_licenses/dev_detailed.json && ./node_modules/license-checker-rseidelsohn/bin/license-checker-rseidelsohn --summary --development > third_party_licenses/dev_summary.txt",
