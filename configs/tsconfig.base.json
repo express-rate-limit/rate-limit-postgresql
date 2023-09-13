@@ -14,7 +14,8 @@
         "../source/"
     ],
     "exclude": [
-        "../node_modules/"
+        "../node_modules/",
+        "../local_folder/"
     ],
     "extends": "@express-rate-limit/tsconfig"
 }
