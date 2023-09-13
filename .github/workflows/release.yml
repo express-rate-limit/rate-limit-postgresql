@@ -8,6 +8,7 @@ jobs:
   publish:
     name: Publish
     runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/v')
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
@@ -24,11 +25,11 @@ jobs:
       - name: Build package to upload to GitHub releases
         run: |
           npm pack
-          mv @acpr/rate-limit-postgresql-*.tgz @acpr/rate-limit-postgresql.tgz
+          mv @acpr/rate-limit-postgresql-*.tgz rate-limit-postgresql.tgz
       - name: Create a Github release
         uses: softprops/action-gh-release@v1
         with:
-          files: @acpr/rate-limit-postgresql.tgz
+          files: rate-limit-postgresql.tgz
           body:
             You can view the changelog
             [here](https://github.com/adrianprelipcean/express-rate-limit-postgresql/blob/master/changelog.md).
