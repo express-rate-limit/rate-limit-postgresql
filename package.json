@@ -26,7 +26,10 @@
     "build:esm": "tsc -p ./configs/tsconfig.esm.json && mv dist/esm/index.js dist/esm/index.mjs",
     "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
     "prepack": "npm run build",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate-dev-licenses": "./node_modules/license-checker-rseidelsohn/bin/license-checker-rseidelsohn --limitAttributes licenses,repository,publisher,email --json --development > third_party_licenses/dev_detailed.json && ./node_modules/license-checker-rseidelsohn/bin/license-checker-rseidelsohn --summary --development > third_party_licenses/dev_summary.txt",
+    "generate-production-licenses": "./node_modules/license-checker-rseidelsohn/bin/license-checker-rseidelsohn --limitAttributes licenses,repository,publisher,email --json --production > third_party_licenses/production_detailed.json && ./node_modules/license-checker-rseidelsohn/bin/license-checker-rseidelsohn --summary --production > third_party_licenses/production_summary.txt",
+    "generate-licenses": "npm run generate-dev-licenses && npm run generate-production-licenses"
   },
   "keywords": [
     "express-rate-limit",
@@ -70,6 +73,7 @@
     "@types/sinon": "^10.0.16",
     "chai": "^4.3.8",
     "husky": "8.0.3",
+    "license-checker-rseidelsohn": "^4.2.6",
     "lint-staged": "14.0.1",
     "mocha": "^10.2.0",
     "prettier": "3.0.3",
@@ -80,6 +84,7 @@
   "prettier": "@express-rate-limit/prettier",
   "lint-staged": {
     "source/**/*.ts": "prettier --write",
-    "test/**/*.ts": "prettier --write"
+    "test/**/*.ts": "prettier --write",
+    "package.json": "npm run generate-licenses"
   }
 }

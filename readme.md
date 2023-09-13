@@ -68,7 +68,7 @@ import postgresStores from '@acpr/rate-limit-postgresql'
 
 ### Types of Postgres Stores
 There are two different types of Postgres Stores:
-1. `PostgresStoreAggregatedIP` (with the default `PostgresStore`)- which aggregates the IP count in the table, as shown in the following table 
+1. `PostgresStoreAggregatedIP` (with the default `PostgresStore` constructor)- which aggregates the IP count in the table, as shown in the following table 
 
 | key         | session_id | count |
 |-------------|------------|-------|

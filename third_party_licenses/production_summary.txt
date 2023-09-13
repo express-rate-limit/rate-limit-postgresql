@@ -1,0 +1,4 @@
+├─ MIT: 72
+├─ ISC: 5
+└─ BSD-3-Clause: 1
+

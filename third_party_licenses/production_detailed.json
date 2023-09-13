@@ -1,0 +1,417 @@
+{
+    "@acpr/rate-limit-postgresql@1.0.0": {
+        "licenses": "MIT",
+        "publisher": "Adrian C. Prelipcean"
+    },
+    "accepts@1.3.8": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jshttp/accepts"
+    },
+    "array-flatten@1.1.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/blakeembrey/array-flatten",
+        "publisher": "Blake Embrey",
+        "email": "hello@blakeembrey.com"
+    },
+    "body-parser@1.20.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/expressjs/body-parser"
+    },
+    "buffer-writer@2.0.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/brianc/node-buffer-writer",
+        "publisher": "Brian M. Carlson"
+    },
+    "bytes@3.1.2": {
+        "licenses": "MIT",
+        "repository": "https://github.com/visionmedia/bytes.js",
+        "publisher": "TJ Holowaychuk",
+        "email": "tj@vision-media.ca"
+    },
+    "call-bind@1.0.2": {
+        "licenses": "MIT",
+        "repository": "https://github.com/ljharb/call-bind",
+        "publisher": "Jordan Harband",
+        "email": "ljharb@gmail.com"
+    },
+    "content-disposition@0.5.4": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jshttp/content-disposition",
+        "publisher": "Douglas Christopher Wilson",
+        "email": "doug@somethingdoug.com"
+    },
+    "content-type@1.0.5": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jshttp/content-type",
+        "publisher": "Douglas Christopher Wilson",
+        "email": "doug@somethingdoug.com"
+    },
+    "cookie-signature@1.0.6": {
+        "licenses": "MIT",
+        "repository": "https://github.com/visionmedia/node-cookie-signature",
+        "publisher": "TJ Holowaychuk",
+        "email": "tj@learnboost.com"
+    },
+    "cookie@0.5.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jshttp/cookie",
+        "publisher": "Roman Shtylman",
+        "email": "shtylman@gmail.com"
+    },
+    "debug@2.6.9": {
+        "licenses": "MIT",
+        "repository": "https://github.com/visionmedia/debug",
+        "publisher": "TJ Holowaychuk",
+        "email": "tj@vision-media.ca"
+    },
+    "depd@2.0.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/dougwilson/nodejs-depd",
+        "publisher": "Douglas Christopher Wilson",
+        "email": "doug@somethingdoug.com"
+    },
+    "destroy@1.2.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/stream-utils/destroy",
+        "publisher": "Jonathan Ong",
+        "email": "me@jongleberry.com"
+    },
+    "ee-first@1.1.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jonathanong/ee-first",
+        "publisher": "Jonathan Ong",
+        "email": "me@jongleberry.com"
+    },
+    "encodeurl@1.0.2": {
+        "licenses": "MIT",
+        "repository": "https://github.com/pillarjs/encodeurl"
+    },
+    "escape-html@1.0.3": {
+        "licenses": "MIT",
+        "repository": "https://github.com/component/escape-html"
+    },
+    "etag@1.8.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jshttp/etag"
+    },
+    "express-rate-limit@6.11.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/express-rate-limit/express-rate-limit",
+        "publisher": "Nathan Friedly"
+    },
+    "express@4.18.2": {
+        "licenses": "MIT",
+        "repository": "https://github.com/expressjs/express",
+        "publisher": "TJ Holowaychuk",
+        "email": "tj@vision-media.ca"
+    },
+    "finalhandler@1.2.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/pillarjs/finalhandler",
+        "publisher": "Douglas Christopher Wilson",
+        "email": "doug@somethingdoug.com"
+    },
+    "forwarded@0.2.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jshttp/forwarded"
+    },
+    "fresh@0.5.2": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jshttp/fresh",
+        "publisher": "TJ Holowaychuk",
+        "email": "tj@vision-media.ca"
+    },
+    "function-bind@1.1.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/Raynos/function-bind",
+        "publisher": "Raynos",
+        "email": "raynos2@gmail.com"
+    },
+    "get-intrinsic@1.2.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/ljharb/get-intrinsic",
+        "publisher": "Jordan Harband",
+        "email": "ljharb@gmail.com"
+    },
+    "has-proto@1.0.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/inspect-js/has-proto",
+        "publisher": "Jordan Harband",
+        "email": "ljharb@gmail.com"
+    },
+    "has-symbols@1.0.3": {
+        "licenses": "MIT",
+        "repository": "https://github.com/inspect-js/has-symbols",
+        "publisher": "Jordan Harband",
+        "email": "ljharb@gmail.com"
+    },
+    "has@1.0.3": {
+        "licenses": "MIT",
+        "repository": "https://github.com/tarruda/has",
+        "publisher": "Thiago de Arruda",
+        "email": "tpadilha84@gmail.com"
+    },
+    "http-errors@2.0.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jshttp/http-errors",
+        "publisher": "Jonathan Ong",
+        "email": "me@jongleberry.com"
+    },
+    "iconv-lite@0.4.24": {
+        "licenses": "MIT",
+        "repository": "https://github.com/ashtuchkin/iconv-lite",
+        "publisher": "Alexander Shtuchkin",
+        "email": "ashtuchkin@gmail.com"
+    },
+    "inherits@2.0.4": {
+        "licenses": "ISC",
+        "repository": "https://github.com/isaacs/inherits"
+    },
+    "ipaddr.js@1.9.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/whitequark/ipaddr.js",
+        "publisher": "whitequark",
+        "email": "whitequark@whitequark.org"
+    },
+    "media-typer@0.3.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jshttp/media-typer",
+        "publisher": "Douglas Christopher Wilson",
+        "email": "doug@somethingdoug.com"
+    },
+    "merge-descriptors@1.0.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/component/merge-descriptors",
+        "publisher": "Jonathan Ong",
+        "email": "me@jongleberry.com"
+    },
+    "methods@1.1.2": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jshttp/methods"
+    },
+    "mime-db@1.52.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jshttp/mime-db"
+    },
+    "mime-types@2.1.35": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jshttp/mime-types"
+    },
+    "mime@1.6.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/broofa/node-mime",
+        "publisher": "Robert Kieffer",
+        "email": "robert@broofa.com"
+    },
+    "ms@2.0.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/zeit/ms"
+    },
+    "ms@2.1.3": {
+        "licenses": "MIT",
+        "repository": "https://github.com/vercel/ms"
+    },
+    "negotiator@0.6.3": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jshttp/negotiator"
+    },
+    "object-inspect@1.12.3": {
+        "licenses": "MIT",
+        "repository": "https://github.com/inspect-js/object-inspect",
+        "publisher": "James Halliday",
+        "email": "mail@substack.net"
+    },
+    "on-finished@2.4.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jshttp/on-finished"
+    },
+    "packet-reader@1.0.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/brianc/node-packet-reader",
+        "publisher": "Brian M. Carlson"
+    },
+    "parseurl@1.3.3": {
+        "licenses": "MIT",
+        "repository": "https://github.com/pillarjs/parseurl"
+    },
+    "path-to-regexp@0.1.7": {
+        "licenses": "MIT",
+        "repository": "https://github.com/component/path-to-regexp"
+    },
+    "pg-cloudflare@1.1.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/brianc/node-postgres"
+    },
+    "pg-connection-string@2.6.2": {
+        "licenses": "MIT",
+        "repository": "https://github.com/brianc/node-postgres",
+        "publisher": "Blaine Bublitz",
+        "email": "blaine@iceddev.com"
+    },
+    "pg-int8@1.0.1": {
+        "licenses": "ISC",
+        "repository": "https://github.com/charmander/pg-int8"
+    },
+    "pg-pool@3.6.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/brianc/node-postgres",
+        "publisher": "Brian M. Carlson"
+    },
+    "pg-protocol@1.6.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/brianc/node-postgres"
+    },
+    "pg-types@2.2.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/brianc/node-pg-types",
+        "publisher": "Brian M. Carlson"
+    },
+    "pg@8.11.3": {
+        "licenses": "MIT",
+        "repository": "https://github.com/brianc/node-postgres",
+        "publisher": "Brian Carlson",
+        "email": "brian.m.carlson@gmail.com"
+    },
+    "pgpass@1.0.5": {
+        "licenses": "MIT",
+        "repository": "https://github.com/hoegaarden/pgpass",
+        "publisher": "Hannes Hörl",
+        "email": "hannes.hoerl+pgpass@snowreporter.com"
+    },
+    "postgres-array@2.0.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/bendrucker/postgres-array",
+        "publisher": "Ben Drucker",
+        "email": "bvdrucker@gmail.com"
+    },
+    "postgres-bytea@1.0.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/bendrucker/postgres-bytea",
+        "publisher": "Ben Drucker",
+        "email": "bvdrucker@gmail.com"
+    },
+    "postgres-date@1.0.7": {
+        "licenses": "MIT",
+        "repository": "https://github.com/bendrucker/postgres-date",
+        "publisher": "Ben Drucker",
+        "email": "bvdrucker@gmail.com"
+    },
+    "postgres-interval@1.2.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/bendrucker/postgres-interval",
+        "publisher": "Ben Drucker",
+        "email": "bvdrucker@gmail.com"
+    },
+    "postgres-migrations@5.3.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/thomwright/postgres-migrations",
+        "publisher": "Thom Wright"
+    },
+    "proxy-addr@2.0.7": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jshttp/proxy-addr",
+        "publisher": "Douglas Christopher Wilson",
+        "email": "doug@somethingdoug.com"
+    },
+    "qs@6.11.0": {
+        "licenses": "BSD-3-Clause",
+        "repository": "https://github.com/ljharb/qs"
+    },
+    "range-parser@1.2.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jshttp/range-parser",
+        "publisher": "TJ Holowaychuk",
+        "email": "tj@vision-media.ca"
+    },
+    "raw-body@2.5.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/stream-utils/raw-body",
+        "publisher": "Jonathan Ong",
+        "email": "me@jongleberry.com"
+    },
+    "safe-buffer@5.2.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/feross/safe-buffer",
+        "publisher": "Feross Aboukhadijeh",
+        "email": "feross@feross.org"
+    },
+    "safer-buffer@2.1.2": {
+        "licenses": "MIT",
+        "repository": "https://github.com/ChALkeR/safer-buffer",
+        "publisher": "Nikita Skovoroda",
+        "email": "chalkerx@gmail.com"
+    },
+    "send@0.18.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/pillarjs/send",
+        "publisher": "TJ Holowaychuk",
+        "email": "tj@vision-media.ca"
+    },
+    "serve-static@1.15.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/expressjs/serve-static",
+        "publisher": "Douglas Christopher Wilson",
+        "email": "doug@somethingdoug.com"
+    },
+    "setprototypeof@1.2.0": {
+        "licenses": "ISC",
+        "repository": "https://github.com/wesleytodd/setprototypeof",
+        "publisher": "Wes Todd"
+    },
+    "side-channel@1.0.4": {
+        "licenses": "MIT",
+        "repository": "https://github.com/ljharb/side-channel",
+        "publisher": "Jordan Harband",
+        "email": "ljharb@gmail.com"
+    },
+    "split2@4.2.0": {
+        "licenses": "ISC",
+        "repository": "https://github.com/mcollina/split2",
+        "publisher": "Matteo Collina",
+        "email": "hello@matteocollina.com"
+    },
+    "sql-template-strings@2.2.2": {
+        "licenses": "ISC",
+        "repository": "https://github.com/felixfbecker/node-sql-template-strings",
+        "publisher": "Felix Becker"
+    },
+    "statuses@2.0.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jshttp/statuses"
+    },
+    "toidentifier@1.0.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/component/toidentifier",
+        "publisher": "Douglas Christopher Wilson",
+        "email": "doug@somethingdoug.com"
+    },
+    "type-is@1.6.18": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jshttp/type-is"
+    },
+    "unpipe@1.0.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/stream-utils/unpipe",
+        "publisher": "Douglas Christopher Wilson",
+        "email": "doug@somethingdoug.com"
+    },
+    "utils-merge@1.0.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jaredhanson/utils-merge",
+        "publisher": "Jared Hanson",
+        "email": "jaredhanson@gmail.com"
+    },
+    "vary@1.1.2": {
+        "licenses": "MIT",
+        "repository": "https://github.com/jshttp/vary",
+        "publisher": "Douglas Christopher Wilson",
+        "email": "doug@somethingdoug.com"
+    },
+    "xtend@4.0.2": {
+        "licenses": "MIT",
+        "repository": "https://github.com/Raynos/xtend",
+        "publisher": "Raynos",
+        "email": "raynos2@gmail.com"
+    }
+}
+
