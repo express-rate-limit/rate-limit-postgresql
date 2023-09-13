@@ -55,7 +55,7 @@ class PostgresStoreAggregatedIP implements Store {
 	/**
 	 * @constructor for `PostgresStoreAggregatedIP`.
 	 *
-	 * @param config {JSON} - The database configuration as specified in https://node-postgres.com/apis/client.
+	 * @param config {any} - The database configuration as specified in https://node-postgres.com/apis/client.
 	 * @param name {string} - The unique name of the session. This is useful when applying multiple rate limiters with multiple stores.
 	 */
 	constructor(config: any, name: string) {
