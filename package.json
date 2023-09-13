@@ -2,6 +2,12 @@
   "name": "@acpr/rate-limit-postgresql",
   "version": "1.0.0",
   "description": "A PostgreSQL store for the `express-rate-limit` middleware",
+  "homepage": "https://github.com/adrianprelipcean/express-rate-limit-postgresql",
+  "repository": "https://github.com/adrianprelipcean/express-rate-limit-postgresql",
+  "author": {
+    "name": "Adrian C. Prelipcean"
+  },
+  "license": "MIT",
   "types": "./dist/cjs/types/index.d.ts",
   "main": "./dist/cjs/index.js",
   "files": [
@@ -53,10 +59,6 @@
     "postgresql",
     "postgres"
   ],
-  "author": {
-    "name": "Adrian C. Prelipcean"
-  },
-  "license": "MIT",
   "dependencies": {
     "express-rate-limit": "6.11.0",
     "pg": "8.11.3",

@@ -1,6 +1,7 @@
 {
     "@acpr/rate-limit-postgresql@1.0.0": {
         "licenses": "MIT",
+        "repository": "https://github.com/adrianprelipcean/express-rate-limit-postgresql",
         "publisher": "Adrian C. Prelipcean"
     },
     "@cspotcode/source-map-support@0.8.1": {
