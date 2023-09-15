@@ -88,6 +88,7 @@
   },
   "prettier": "@express-rate-limit/prettier",
   "lint-staged": {
+    "*.md": "prettier --write",
     "source/**/*.ts": "prettier --write",
     "test/**/*.ts": "prettier --write",
     "package.json": "npm run generate-licenses"

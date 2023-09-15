@@ -12,7 +12,6 @@ and this project adheres to
 
 - Using [pkgroll](https://github.com/privatenumber/pkgroll) to bundle library
 
-
 ## [1.0.2](https://github.com/adrianprelipcean/express-rate-limit-postgresql/releases/tag/v1.0.2)
 
 ### Added

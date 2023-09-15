@@ -1,8 +1,20 @@
 {
-    "@acpr/rate-limit-postgresql@1.0.2": {
+    "@acpr/rate-limit-postgresql@1.1.0": {
         "licenses": "MIT",
         "repository": "https://github.com/adrianprelipcean/express-rate-limit-postgresql",
         "publisher": "Adrian C. Prelipcean"
+    },
+    "@types/node@20.5.9": {
+        "licenses": "MIT",
+        "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped"
+    },
+    "@types/pg-pool@2.0.3": {
+        "licenses": "MIT",
+        "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped"
+    },
+    "@types/pg@8.10.2": {
+        "licenses": "MIT",
+        "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped"
     },
     "accepts@1.3.8": {
         "licenses": "MIT",
@@ -222,6 +234,12 @@
         "publisher": "James Halliday",
         "email": "mail@substack.net"
     },
+    "obuf@1.1.2": {
+        "licenses": "MIT",
+        "repository": "https://github.com/indutny/offset-buffer",
+        "publisher": "Fedor Indutny",
+        "email": "fedor@indutny.com"
+    },
     "on-finished@2.4.1": {
         "licenses": "MIT",
         "repository": "https://github.com/jshttp/on-finished"
@@ -253,6 +271,10 @@
         "licenses": "ISC",
         "repository": "https://github.com/charmander/pg-int8"
     },
+    "pg-numeric@1.0.2": {
+        "licenses": "ISC",
+        "repository": "https://github.com/charmander/pg-numeric"
+    },
     "pg-pool@3.6.1": {
         "licenses": "MIT",
         "repository": "https://github.com/brianc/node-postgres",
@@ -263,6 +285,11 @@
         "repository": "https://github.com/brianc/node-postgres"
     },
     "pg-types@2.2.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/brianc/node-pg-types",
+        "publisher": "Brian M. Carlson"
+    },
+    "pg-types@4.0.1": {
         "licenses": "MIT",
         "repository": "https://github.com/brianc/node-pg-types",
         "publisher": "Brian M. Carlson"
@@ -285,7 +312,19 @@
         "publisher": "Ben Drucker",
         "email": "bvdrucker@gmail.com"
     },
+    "postgres-array@3.0.2": {
+        "licenses": "MIT",
+        "repository": "https://github.com/bendrucker/postgres-array",
+        "publisher": "Ben Drucker",
+        "email": "bvdrucker@gmail.com"
+    },
     "postgres-bytea@1.0.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/bendrucker/postgres-bytea",
+        "publisher": "Ben Drucker",
+        "email": "bvdrucker@gmail.com"
+    },
+    "postgres-bytea@3.0.0": {
         "licenses": "MIT",
         "repository": "https://github.com/bendrucker/postgres-bytea",
         "publisher": "Ben Drucker",
@@ -297,7 +336,19 @@
         "publisher": "Ben Drucker",
         "email": "bvdrucker@gmail.com"
     },
+    "postgres-date@2.0.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/bendrucker/postgres-date",
+        "publisher": "Ben Drucker",
+        "email": "bvdrucker@gmail.com"
+    },
     "postgres-interval@1.2.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/bendrucker/postgres-interval",
+        "publisher": "Ben Drucker",
+        "email": "bvdrucker@gmail.com"
+    },
+    "postgres-interval@3.0.0": {
         "licenses": "MIT",
         "repository": "https://github.com/bendrucker/postgres-interval",
         "publisher": "Ben Drucker",
@@ -307,6 +358,12 @@
         "licenses": "MIT",
         "repository": "https://github.com/thomwright/postgres-migrations",
         "publisher": "Thom Wright"
+    },
+    "postgres-range@1.1.3": {
+        "licenses": "MIT",
+        "repository": "https://github.com/martianboy/postgres-range",
+        "publisher": "Abbas Mashayekh",
+        "email": "martianboy2005@gmail.com"
     },
     "proxy-addr@2.0.7": {
         "licenses": "MIT",
