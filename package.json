@@ -27,7 +27,7 @@
   "scripts": {
     "test": "cross-env TS_NODE_PROJECT='./configs/tsconfig.esm.json' mocha",
     "clean": "rm -rf ./dist",
-    "build": "npm run clean && pkgroll -c ./configs/tsconfig.esm.json --src source/ && cp source/migrations/ dist/ -r && npm run mjs-fix-prepend",
+    "build": "npm run clean && pkgroll --src source/ && cp source/migrations/ dist/ -r && npm run mjs-fix-prepend",
     "lint": "prettier --check .",
     "lint-autofix": "prettier --write .",
     "prepack": "npm run build",
