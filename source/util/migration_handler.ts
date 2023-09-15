@@ -8,5 +8,5 @@ export async function applyMigrations(config: any): Promise<void> {
 		host: config['host'] || 'localhost',
 		port: config['port'] || 5432,
 	}
-	await migrate(dbConfig, __dirname + '/../../migrations')
+	await migrate(dbConfig, __dirname + '/migrations')
 }
