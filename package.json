@@ -1,6 +1,6 @@
 {
   "name": "@acpr/rate-limit-postgresql",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A PostgreSQL store for the `express-rate-limit` middleware",
   "homepage": "https://github.com/adrianprelipcean/express-rate-limit-postgresql",
   "repository": "https://github.com/adrianprelipcean/express-rate-limit-postgresql",
@@ -8,36 +8,34 @@
     "name": "Adrian C. Prelipcean"
   },
   "license": "MIT",
-  "types": "./dist/cjs/types/index.d.ts",
-  "main": "./dist/cjs/index.js",
   "files": [
     "dist/**/*"
   ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
   "exports": {
-    ".": {
-      "import": {
-        "types": "./dist/esm/types/index.d.ts",
-        "default": "./dist/esm/index.mjs"
-      },
-      "require": {
-        "types": "./dist/cjs/types/index.d.ts",
-        "default": "./dist/cjs/index.js"
-      }
+    "require": {
+      "types": "./dist/index.d.cts",
+      "default": "./dist/index.cjs"
+    },
+    "import": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
     }
   },
   "scripts": {
-    "test": "mocha -r ts-node/register 'test/**/*.ts'",
+    "test": "cross-env TS_NODE_PROJECT='./configs/tsconfig.esm.json' mocha",
     "clean": "rm -rf ./dist",
-    "build": "npm run clean && npm run build:esm && npm run build:cjs && cp source/migrations/ dist/ -r",
-    "build:esm": "tsc -p ./configs/tsconfig.esm.json && mv dist/esm/index.js dist/esm/index.mjs",
-    "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
+    "build": "npm run clean && pkgroll -c ./configs/tsconfig.esm.json --src source/ && cp source/migrations/ dist/ -r && npm run mjs-fix-prepend",
     "lint": "prettier --check .",
     "lint-autofix": "prettier --write .",
     "prepack": "npm run build",
     "prepare": "husky install",
     "generate-dev-licenses": "./node_modules/license-checker-rseidelsohn/bin/license-checker-rseidelsohn --limitAttributes licenses,repository,publisher,email --json --development > third_party_licenses/dev_detailed.json && ./node_modules/license-checker-rseidelsohn/bin/license-checker-rseidelsohn --summary --development > third_party_licenses/dev_summary.txt",
     "generate-production-licenses": "./node_modules/license-checker-rseidelsohn/bin/license-checker-rseidelsohn --limitAttributes licenses,repository,publisher,email --json --production > third_party_licenses/production_detailed.json && ./node_modules/license-checker-rseidelsohn/bin/license-checker-rseidelsohn --summary --production > third_party_licenses/production_summary.txt",
-    "generate-licenses": "npm run generate-dev-licenses && npm run generate-production-licenses"
+    "generate-licenses": "npm run generate-dev-licenses && npm run generate-production-licenses",
+    "mjs-fix-prepend": "printf '%s\\n%s\\n' \"import { dirname } from 'path'\nimport { fileURLToPath } from 'url';\nconst __dirname = dirname(fileURLToPath(import.meta.url));\n\" \"$(cat dist/index.mjs)\" > dist/index.mjs"
   },
   "keywords": [
     "express-rate-limit",
@@ -62,6 +60,7 @@
     "postgres"
   ],
   "dependencies": {
+    "@types/pg-pool": "2.0.3",
     "express-rate-limit": "6.11.0",
     "pg": "8.11.3",
     "pg-pool": "3.6.1",
@@ -73,13 +72,15 @@
     "@types/chai": "4.3.6",
     "@types/express": "4.17.17",
     "@types/mocha": "10.0.1",
-    "@types/pg-pool": "2.0.3",
     "@types/sinon": "10.0.16",
     "chai": "4.3.8",
+    "cross-env": "7.0.3",
+    "global-jsdom": "9.1.0",
     "husky": "8.0.3",
     "license-checker-rseidelsohn": "3.3.0",
     "lint-staged": "14.0.1",
     "mocha": "10.2.0",
+    "pkgroll": "1.11.0",
     "prettier": "3.0.3",
     "sinon": "15.2.0",
     "ts-node": "10.9.1",
