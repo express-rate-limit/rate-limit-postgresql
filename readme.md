@@ -19,6 +19,9 @@ From the npm registry:
 
 ## Usage
 
+Functional examples for using `rate-limit-postgresql` are found in the
+[following repository](https://github.com/adrianprelipcean/express-rate-limit-postgresql-examples)
+
 ```js
 let rateLimit = require('express-rate-limit')
 let postgresStores = require('@acpr/rate-limit-postgresql')
