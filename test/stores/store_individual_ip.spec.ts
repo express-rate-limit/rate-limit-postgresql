@@ -50,9 +50,10 @@ describe('Postgres Store Individual IP', () => {
 		isSessionValidSpy.restore()
 	})
 
-	it('constructor should call correct functions', async () => {
-		new PostgresStoreIndividualIP({}, 'test')
+	it('constructor should call correct functions and populate correct fields', async () => {
+		let testStore = new PostgresStoreIndividualIP({}, 'test')
 		sinon.assert.callCount(applyMigrationsStub, 1)
+		assert.equal(testStore.prefix, 'test')
 	})
 
 	it('increment function should follow expected business logic', async () => {

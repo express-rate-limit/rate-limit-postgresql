@@ -50,8 +50,9 @@ describe('Postgres Store Aggregated IP', () => {
 		isSessionValidSpy.restore()
 	})
 
-	it('constructor should call correct functions', async () => {
-		new PostgresStore({}, 'test')
+	it('constructor should call correct functions and populate correct fields', async () => {
+		let testStore = new PostgresStore({}, 'test')
+		assert.equal(testStore.prefix, 'test')
 		sinon.assert.callCount(applyMigrationsStub, 1)
 	})
 
