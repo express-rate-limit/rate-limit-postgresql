@@ -23,9 +23,11 @@ class PostgresStoreIndividualIP implements Store {
 	pool: any
 
 	/**
-	 * The name of the session
+	 * Optional value that the store prepends to keys
+	 *
+	 * Used by the double-count check to avoid false-positives when a key is counted twice, but with different prefixes
 	 */
-	name: string
+	prefix: string
 
 	/**
 	 * The type of session (as an enum)
@@ -56,11 +58,11 @@ class PostgresStoreIndividualIP implements Store {
 	 * @constructor for `PostgresStoreIndividualIP`.
 	 *
 	 * @param config {any} - The database configuration as specified in https://node-postgres.com/apis/client.
-	 * @param name {string} - The unique name of the session. This is useful when applying multiple rate limiters with multiple stores.
+	 * @param prefix {string} - The unique name of the session. This is useful when applying multiple rate limiters with multiple stores.
 	 */
-	constructor(config: any, name: string) {
+	constructor(config: any, prefix: string) {
 		this.config = config
-		this.name = name
+		this.prefix = prefix
 		applyMigrations(config)
 	}
 
@@ -94,7 +96,7 @@ class PostgresStoreIndividualIP implements Store {
 			'SELECT count(id) AS count FROM rate_limit.individual_records WHERE key = $1 AND session_id = $2'
 		if (!isSessionValid(this.session)) {
 			this.session = await getSession(
-				this.name,
+				this.prefix,
 				this.SESSION_TYPE,
 				this.windowMs,
 				this.pool,

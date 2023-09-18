@@ -103,8 +103,9 @@ Both types of store take the same input in their constructor
 
 - `config` - The database configuration as specified in the
   [node-postgres](https://node-postgres.com/apis/client) configuration.
-- `name` - The unique name of the session. This is useful when applying multiple
-  rate limiters with multiple stores.
+- `prefix` - The unique name of the session (persisted in the database). Used by
+  the double-count check to avoid false-positives when a key is counted twice,
+  but with different prefixes.
 
 ## Installation
 

@@ -1,5 +1,5 @@
 {
-    "@acpr/rate-limit-postgresql@1.1.0": {
+    "@acpr/rate-limit-postgresql@1.1.1": {
         "licenses": "MIT",
         "repository": "https://github.com/adrianprelipcean/express-rate-limit-postgresql",
         "publisher": "Adrian C. Prelipcean"
