@@ -8,14 +8,11 @@ and this project adheres to
 
 ## [1.2.0](https://github.com/adrianprelipcean/express-rate-limit-postgresql/releases/tag/v1.2.0)
 
-### Breaking
+### Changed
 
-- Bumped `express-rate-limit` to
-  [7.0.1](https://github.com/express-rate-limit/express-rate-limit/releases/tag/v7.0.1)
-- Bumped `sinon` to
-  [16.0.0](https://github.com/sinonjs/sinon/blob/main/CHANGES.md#1600)
-- Bumped `license-checker-rseidelsohn` to
-  [4.2.7](https://github.com/RSeidelsohn/license-checker-rseidelsohn/releases/tag/v4.2.7)
+- `express-rate-limit` moved from `dependencies` to `peerDependencies`
+
+## [1.1.1](https://github.com/adrianprelipcean/express-rate-limit-postgresql/releases/tag/v1.1.1)
 
 ### Added
 
