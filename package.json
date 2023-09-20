@@ -1,6 +1,6 @@
 {
   "name": "@acpr/rate-limit-postgresql",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "A PostgreSQL store for the `express-rate-limit` middleware",
   "homepage": "https://github.com/adrianprelipcean/express-rate-limit-postgresql",
   "repository": "https://github.com/adrianprelipcean/express-rate-limit-postgresql",
