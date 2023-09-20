@@ -1,10 +1,10 @@
-├─ MIT: 212
-├─ ISC: 34
+├─ MIT: 211
+├─ ISC: 41
 ├─ BSD-3-Clause: 14
 ├─ Apache-2.0: 6
 ├─ BSD-2-Clause: 3
-├─ Custom: https://prettier.io/: 1
-├─ [1m[31mUNKNOWN[39m[22m: 1
+├─ [1m[31mUNKNOWN[39m[22m: 2
+├─ BlueOak-1.0.0: 2
 ├─ (Unlicense OR Apache-2.0): 1
 ├─ Python-2.0: 1
 ├─ CC-BY-3.0: 1

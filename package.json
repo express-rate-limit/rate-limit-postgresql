@@ -1,6 +1,6 @@
 {
   "name": "@acpr/rate-limit-postgresql",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "A PostgreSQL store for the `express-rate-limit` middleware",
   "homepage": "https://github.com/adrianprelipcean/express-rate-limit-postgresql",
   "repository": "https://github.com/adrianprelipcean/express-rate-limit-postgresql",
@@ -61,7 +61,7 @@
   ],
   "dependencies": {
     "@types/pg-pool": "2.0.3",
-    "express-rate-limit": "6.11.1",
+    "express-rate-limit": "7.0.1",
     "pg": "8.11.3",
     "pg-pool": "3.6.1",
     "postgres-migrations": "5.3.0"
@@ -77,12 +77,12 @@
     "cross-env": "7.0.3",
     "global-jsdom": "9.1.0",
     "husky": "8.0.3",
-    "license-checker-rseidelsohn": "3.3.0",
+    "license-checker-rseidelsohn": "4.2.7",
     "lint-staged": "14.0.1",
     "mocha": "10.2.0",
     "pkgroll": "1.11.0",
     "prettier": "3.0.3",
-    "sinon": "15.2.0",
+    "sinon": "16.0.0",
     "ts-node": "10.9.1",
     "typescript": "5.2.2"
   },
