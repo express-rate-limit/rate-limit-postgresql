@@ -1,10 +1,10 @@
 {
-    "@acpr/rate-limit-postgresql@1.1.1": {
+    "@acpr/rate-limit-postgresql@1.2.0": {
         "licenses": "MIT",
         "repository": "https://github.com/adrianprelipcean/express-rate-limit-postgresql",
         "publisher": "Adrian C. Prelipcean"
     },
-    "@types/node@20.5.9": {
+    "@types/node@20.6.3": {
         "licenses": "MIT",
         "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped"
     },
@@ -107,7 +107,7 @@
         "licenses": "MIT",
         "repository": "https://github.com/jshttp/etag"
     },
-    "express-rate-limit@6.11.1": {
+    "express-rate-limit@7.0.1": {
         "licenses": "MIT",
         "repository": "https://github.com/express-rate-limit/express-rate-limit",
         "publisher": "Nathan Friedly"

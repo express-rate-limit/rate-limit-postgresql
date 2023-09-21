@@ -1,5 +1,5 @@
 {
-    "@acpr/rate-limit-postgresql@1.1.1": {
+    "@acpr/rate-limit-postgresql@1.2.0": {
         "licenses": "MIT",
         "repository": "https://github.com/adrianprelipcean/express-rate-limit-postgresql",
         "publisher": "Adrian C. Prelipcean"
@@ -12,13 +12,19 @@
         "licenses": "MIT",
         "repository": "https://github.com/evanw/esbuild"
     },
-    "@express-rate-limit/prettier@1.1.0": {
-        "licenses": "Custom: https://prettier.io/",
+    "@express-rate-limit/prettier@1.1.1": {
+        "licenses": "MIT",
         "repository": "https://github.com/express-rate-limit/prettier"
     },
-    "@express-rate-limit/tsconfig@1.0.0": {
-        "licenses": "UNKNOWN",
+    "@express-rate-limit/tsconfig@1.0.2": {
+        "licenses": "MIT",
         "repository": "https://github.com/express-rate-limit/tsconfig"
+    },
+    "@isaacs/cliui@8.0.2": {
+        "licenses": "ISC",
+        "repository": "https://github.com/yargs/cliui",
+        "publisher": "Ben Coe",
+        "email": "ben@npmjs.com"
     },
     "@jridgewell/resolve-uri@3.1.1": {
         "licenses": "MIT",
@@ -36,6 +42,15 @@
         "repository": "https://github.com/jridgewell/trace-mapping",
         "publisher": "Justin Ridgewell",
         "email": "justin@ridgewell.name"
+    },
+    "@npmcli/fs@3.1.0": {
+        "licenses": "ISC",
+        "repository": "https://github.com/npm/fs",
+        "publisher": "GitHub Inc."
+    },
+    "@pkgjs/parseargs@0.11.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/pkgjs/parseargs"
     },
     "@rollup/plugin-alias@4.0.4": {
         "licenses": "MIT",
@@ -123,7 +138,7 @@
         "licenses": "MIT",
         "repository": "https://github.com/tsconfig/bases"
     },
-    "@types/body-parser@1.19.2": {
+    "@types/body-parser@1.19.3": {
         "licenses": "MIT",
         "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped"
     },
@@ -147,7 +162,7 @@
         "licenses": "MIT",
         "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped"
     },
-    "@types/http-errors@2.0.1": {
+    "@types/http-errors@2.0.2": {
         "licenses": "MIT",
         "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped"
     },
@@ -268,10 +283,6 @@
         "repository": "https://github.com/sindresorhus/array-find-index",
         "publisher": "Sindre Sorhus",
         "email": "sindresorhus@gmail.com"
-    },
-    "asap@2.0.6": {
-        "licenses": "MIT",
-        "repository": "https://github.com/kriskowal/asap"
     },
     "assertion-error@1.1.0": {
         "licenses": "MIT",
@@ -447,12 +458,6 @@
         "publisher": "Josh Junon",
         "email": "josh.junon@protonmail.com"
     },
-    "debuglog@1.0.1": {
-        "licenses": "MIT",
-        "repository": "https://github.com/sam-github/node-debuglog",
-        "publisher": "Sam Roberts",
-        "email": "sam@strongloop.com"
-    },
     "decamelize@4.0.0": {
         "licenses": "MIT",
         "repository": "https://github.com/sindresorhus/decamelize",
@@ -480,12 +485,6 @@
         "repository": "https://github.com/felixge/node-delayed-stream",
         "publisher": "Felix Geisendörfer",
         "email": "felix@debuggable.com"
-    },
-    "dezalgo@1.0.4": {
-        "licenses": "ISC",
-        "repository": "https://github.com/npm/dezalgo",
-        "publisher": "Isaac Z. Schlueter",
-        "email": "i@izs.me"
     },
     "diff@4.0.2": {
         "licenses": "BSD-3-Clause",
@@ -575,6 +574,12 @@
         "publisher": "Hugh Kennedy",
         "email": "hughskennedy@gmail.com"
     },
+    "foreground-child@3.1.1": {
+        "licenses": "ISC",
+        "repository": "https://github.com/tapjs/foreground-child",
+        "publisher": "Isaac Z. Schlueter",
+        "email": "i@izs.me"
+    },
     "form-data@4.0.0": {
         "licenses": "MIT",
         "repository": "https://github.com/form-data/form-data",
@@ -610,6 +615,12 @@
         "publisher": "Gulp Team",
         "email": "team@gulpjs.com"
     },
+    "glob@10.3.4": {
+        "licenses": "ISC",
+        "repository": "https://github.com/isaacs/node-glob",
+        "publisher": "Isaac Z. Schlueter",
+        "email": "i@izs.me"
+    },
     "glob@7.2.0": {
         "licenses": "ISC",
         "repository": "https://github.com/isaacs/node-glob",
@@ -643,11 +654,10 @@
         "repository": "https://github.com/mathiasbynens/he",
         "publisher": "Mathias Bynens"
     },
-    "hosted-git-info@4.1.0": {
+    "hosted-git-info@6.1.1": {
         "licenses": "ISC",
         "repository": "https://github.com/npm/hosted-git-info",
-        "publisher": "Rebecca Turner",
-        "email": "me@re-becca.org"
+        "publisher": "GitHub Inc."
     },
     "html-encoding-sniffer@3.0.0": {
         "licenses": "MIT",
@@ -782,6 +792,12 @@
         "publisher": "Isaac Z. Schlueter",
         "email": "i@izs.me"
     },
+    "jackspeak@2.3.3": {
+        "licenses": "BlueOak-1.0.0",
+        "repository": "https://github.com/isaacs/jackspeak",
+        "publisher": "Isaac Z. Schlueter",
+        "email": "i@izs.me"
+    },
     "js-yaml@4.1.0": {
         "licenses": "MIT",
         "repository": "https://github.com/nodeca/js-yaml",
@@ -792,18 +808,17 @@
         "licenses": "MIT",
         "repository": "https://github.com/jsdom/jsdom"
     },
-    "json-parse-even-better-errors@2.3.1": {
+    "json-parse-even-better-errors@3.0.0": {
         "licenses": "MIT",
         "repository": "https://github.com/npm/json-parse-even-better-errors",
-        "publisher": "Kat Marchán",
-        "email": "kzm@zkat.tech"
+        "publisher": "GitHub Inc."
     },
     "just-extend@4.2.1": {
         "licenses": "MIT",
         "repository": "https://github.com/angus-c/just",
         "publisher": "Angus Croll"
     },
-    "license-checker-rseidelsohn@3.3.0": {
+    "license-checker-rseidelsohn@4.2.7": {
         "licenses": "BSD-3-Clause",
         "repository": "https://github.com/RSeidelsohn/license-checker-rseidelsohn",
         "publisher": "Roman Seidelsohn",
@@ -862,7 +877,19 @@
         "publisher": "Veselin Todorov",
         "email": "hi@vesln.com"
     },
+    "lru-cache@10.0.1": {
+        "licenses": "ISC",
+        "repository": "https://github.com/isaacs/node-lru-cache",
+        "publisher": "Isaac Z. Schlueter",
+        "email": "i@izs.me"
+    },
     "lru-cache@6.0.0": {
+        "licenses": "ISC",
+        "repository": "https://github.com/isaacs/node-lru-cache",
+        "publisher": "Isaac Z. Schlueter",
+        "email": "i@izs.me"
+    },
+    "lru-cache@7.18.3": {
         "licenses": "ISC",
         "repository": "https://github.com/isaacs/node-lru-cache",
         "publisher": "Isaac Z. Schlueter",
@@ -919,6 +946,18 @@
         "publisher": "Isaac Z. Schlueter",
         "email": "i@izs.me"
     },
+    "minimatch@9.0.3": {
+        "licenses": "ISC",
+        "repository": "https://github.com/isaacs/minimatch",
+        "publisher": "Isaac Z. Schlueter",
+        "email": "i@izs.me"
+    },
+    "minipass@7.0.3": {
+        "licenses": "ISC",
+        "repository": "https://github.com/isaacs/minipass",
+        "publisher": "Isaac Z. Schlueter",
+        "email": "i@izs.me"
+    },
     "mkdirp@1.0.4": {
         "licenses": "MIT",
         "repository": "https://github.com/isaacs/node-mkdirp"
@@ -953,22 +992,20 @@
         "publisher": "Isaac Z. Schlueter",
         "email": "i@izs.me"
     },
-    "normalize-package-data@3.0.3": {
+    "normalize-package-data@5.0.0": {
         "licenses": "BSD-2-Clause",
         "repository": "https://github.com/npm/normalize-package-data",
-        "publisher": "Meryn Stol",
-        "email": "merynstol@gmail.com"
+        "publisher": "GitHub Inc."
     },
     "normalize-path@3.0.0": {
         "licenses": "MIT",
         "repository": "https://github.com/jonschlinkert/normalize-path",
         "publisher": "Jon Schlinkert"
     },
-    "npm-normalize-package-bin@1.0.1": {
+    "npm-normalize-package-bin@3.0.1": {
         "licenses": "ISC",
         "repository": "https://github.com/npm/npm-normalize-package-bin",
-        "publisher": "Isaac Z. Schlueter",
-        "email": "i@izs.me"
+        "publisher": "GitHub Inc."
     },
     "npm-run-path@5.1.0": {
         "licenses": "MIT",
@@ -1048,6 +1085,12 @@
         "publisher": "Javier Blanco",
         "email": "http://jbgutierrez.info"
     },
+    "path-scurry@1.10.1": {
+        "licenses": "BlueOak-1.0.0",
+        "repository": "https://github.com/isaacs/path-scurry",
+        "publisher": "Isaac Z. Schlueter",
+        "email": "i@izs.me"
+    },
     "path-to-regexp@1.8.0": {
         "licenses": "MIT",
         "repository": "https://github.com/pillarjs/path-to-regexp"
@@ -1100,23 +1143,16 @@
         "licenses": "MIT",
         "repository": "https://github.com/crypto-browserify/randombytes"
     },
-    "read-installed-packages@1.0.0": {
+    "read-installed-packages@2.0.1": {
         "licenses": "ISC",
         "repository": "https://github.com/Semigradsky/read-installed",
         "publisher": "Dmitry Semigradsky",
         "email": "semigradskyd@gmail.com"
     },
-    "read-package-json@4.1.2": {
+    "read-package-json@6.0.4": {
         "licenses": "ISC",
         "repository": "https://github.com/npm/read-package-json",
-        "publisher": "Isaac Z. Schlueter",
-        "email": "i@izs.me"
-    },
-    "readdir-scoped-modules@1.1.0": {
-        "licenses": "ISC",
-        "repository": "https://github.com/npm/readdir-scoped-modules",
-        "publisher": "Isaac Z. Schlueter",
-        "email": "i@izs.me"
+        "publisher": "GitHub Inc."
     },
     "readdirp@3.6.0": {
         "licenses": "MIT",
@@ -1135,7 +1171,7 @@
         "repository": "https://github.com/unshiftio/requires-port",
         "publisher": "Arnout Kazemier"
     },
-    "resolve@1.22.4": {
+    "resolve@1.22.6": {
         "licenses": "MIT",
         "repository": "https://github.com/browserify/resolve",
         "publisher": "James Halliday",
@@ -1199,7 +1235,13 @@
         "publisher": "Ben Coe",
         "email": "ben@npmjs.com"
     },
-    "sinon@15.2.0": {
+    "signal-exit@4.1.0": {
+        "licenses": "ISC",
+        "repository": "https://github.com/tapjs/signal-exit",
+        "publisher": "Ben Coe",
+        "email": "ben@npmjs.com"
+    },
+    "sinon@16.0.0": {
         "licenses": "BSD-3-Clause",
         "repository": "https://github.com/sinonjs/sinon",
         "publisher": "Christian Johansen"
@@ -1241,7 +1283,7 @@
         "publisher": "Kyle E. Mitchell",
         "email": "kyle@kemitchell.com"
     },
-    "spdx-license-ids@3.0.13": {
+    "spdx-license-ids@3.0.15": {
         "licenses": "CC0-1.0",
         "repository": "https://github.com/jslicense/spdx-license-ids",
         "publisher": "Shinnosuke Watanabe"
@@ -1450,7 +1492,7 @@
         "publisher": "Isaac Z. Schlueter",
         "email": "i@izs.me"
     },
-    "ws@8.14.1": {
+    "ws@8.14.2": {
         "licenses": "MIT",
         "repository": "https://github.com/websockets/ws",
         "publisher": "Einar Otto Stangvik",
