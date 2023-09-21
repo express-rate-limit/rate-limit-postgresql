@@ -12,12 +12,12 @@
         "licenses": "MIT",
         "repository": "https://github.com/evanw/esbuild"
     },
-    "@express-rate-limit/prettier@1.1.0": {
-        "licenses": "UNKNOWN",
+    "@express-rate-limit/prettier@1.1.1": {
+        "licenses": "MIT",
         "repository": "https://github.com/express-rate-limit/prettier"
     },
-    "@express-rate-limit/tsconfig@1.0.0": {
-        "licenses": "UNKNOWN",
+    "@express-rate-limit/tsconfig@1.0.2": {
+        "licenses": "MIT",
         "repository": "https://github.com/express-rate-limit/tsconfig"
     },
     "@isaacs/cliui@8.0.2": {

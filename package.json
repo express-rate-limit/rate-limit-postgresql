@@ -70,8 +70,8 @@
   },
   "devDependencies": {
     "express-rate-limit": "7.0.1",
-    "@express-rate-limit/prettier": "1.1.0",
-    "@express-rate-limit/tsconfig": "1.0.0",
+    "@express-rate-limit/prettier": "1.1.1",
+    "@express-rate-limit/tsconfig": "1.0.2",
     "@types/chai": "4.3.6",
     "@types/express": "4.17.17",
     "@types/mocha": "10.0.1",
