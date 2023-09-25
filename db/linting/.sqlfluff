@@ -1,0 +1,4 @@
+[sqlfluff]
+large_file_skip_char_limit = 0
+large_file_skip_byte_limit = 0
+exclude_rules = L016,LT05,RF05
