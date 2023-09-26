@@ -73,19 +73,19 @@ jobs:
 
     steps:
     - name: Initialize database and run tests
-        run: |
-          createdb --username=$USER -h $HOST -p $PORT $DATABASE
-          bash db/cli/apply_all_migrations.sh
-          bash db/cli/run_tests.sh
-        env:
-          DATABASE: test_postgres
-          HOST: localhost
-          PORT: 5432
-          USER: postgres
-          PASSWORD: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_USER: postgres
-          PGPASSWORD: postgres
+      run: |
+        createdb --username=$USER -h $HOST -p $PORT $DATABASE
+        bash db/cli/apply_all_migrations.sh
+        bash db/cli/run_tests.sh
+      env:
+        DATABASE: test_postgres
+        HOST: localhost
+        PORT: 5432
+        USER: postgres
+        PASSWORD: postgres
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_USER: postgres
+        PGPASSWORD: postgres
   cd:
     name: Continuous Deployment
     runs-on: ubuntu-latest
