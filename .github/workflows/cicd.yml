@@ -20,8 +20,8 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run lint
-  ci-db:
-    name: Continuous Integration Database
+  ci-db-linting:
+    name: Continuous Integration Database - Linting
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -49,6 +49,43 @@ jobs:
     - name: Analysing the SQL code
       run: |
         bash db/linting/lint.sh 
+  ci-db-testing:
+    name: Continuous Integration Database - Testing
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: acprdev/postgres-ci:15.2
+        env:
+          DATABASE: test_postgres
+          HOST: localhost
+          PORT: 5432
+          USER: postgres
+          PASSWORD: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    steps:
+    - name: Initialize database and run tests
+        run: |
+          createdb --username=$USER -h $HOST -p $PORT $DATABASE
+          bash db/cli/apply_all_migrations.sh
+          bash db/cli/run_tests.sh
+        env:
+          DATABASE: test_postgres
+          HOST: localhost
+          PORT: 5432
+          USER: postgres
+          PASSWORD: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          PGPASSWORD: postgres
   cd:
     name: Continuous Deployment
     runs-on: ubuntu-latest
