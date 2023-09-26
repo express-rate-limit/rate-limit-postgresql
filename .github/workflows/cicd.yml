@@ -73,7 +73,7 @@ jobs:
 
     steps:
     - name: Initialize database and run tests
-      working-directory: ./db/cli
+      working-directory: db/cli
       run: |
         bash init_db.sh
         bash apply_all_migrations.sh
