@@ -90,11 +90,10 @@ jobs:
       env:
         SHELL: /bin/bash
     - name: Initialize database and run tests
-      working-directory: db/cli
       run: |
-        bash init_db.sh
-        bash apply_all_migrations.sh
-        bash run_tests.sh
+        bash db/cli/init_db.sh
+        bash db/cli/apply_all_migrations.sh
+        bash db/cli/run_tests.sh
       env:
         DATABASE: test_postgres
         HOST: localhost
