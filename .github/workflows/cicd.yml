@@ -72,6 +72,7 @@ jobs:
           - 5432:5432
 
     steps:
+    - uses: actions/checkout@v3
     - name: Initialize database and run tests
       working-directory: db/cli
       run: |
