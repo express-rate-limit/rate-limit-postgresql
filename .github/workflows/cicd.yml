@@ -73,6 +73,22 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Setup Perl
+      id: perl
+      uses: shogo82148/actions-setup-perl@v1
+      with:
+        perl-version: '5.34'
+        install-modules-with: cpm
+    - name: Cache CPAN Modules
+      uses: actions/cache@v3
+      with:
+        path: local
+        key: perl-${{ steps.perl.outputs.perl-hash }}
+    - name: Install pg_prove
+      run: |
+        cpm install TAP::Parser::SourceHandler::pgTAP
+      env:
+        SHELL: /bin/bash
     - name: Initialize database and run tests
       working-directory: db/cli
       run: |
