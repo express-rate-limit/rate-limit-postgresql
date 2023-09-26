@@ -113,7 +113,7 @@ describe('Postgres Store Individual IP', () => {
             WITH 
             rows_to_delete AS (
                 SELECT id FROM rate_limit.individual_records
-                WHERE key = $1 and session_id = $2 ORDER BY registered_at LIMIT 1
+                WHERE key = $1 and session_id = $2 ORDER BY event_time LIMIT 1
                 )
             DELETE FROM rate_limit.individual_records 
               USING rows_to_delete WHERE individual_records.id = rows_to_delete.id            
