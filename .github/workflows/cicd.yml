@@ -74,7 +74,7 @@ jobs:
     steps:
     - name: Initialize database and run tests
       run: |
-        createdb --username=$USER -h $HOST -p $PORT $DATABASE
+        bash db/cli/init_db.sh
         bash db/cli/apply_all_migrations.sh
         bash db/cli/run_tests.sh
       env:
