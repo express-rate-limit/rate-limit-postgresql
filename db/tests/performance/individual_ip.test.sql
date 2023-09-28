@@ -1,6 +1,6 @@
 BEGIN;
 -- Plan the tests.
-SELECT plan(5);
+SELECT plan(4);
 
 INSERT INTO rate_limit.sessions (name_, type_)
 SELECT
@@ -26,78 +26,37 @@ VALUES ('test-count', '00000000-0000-0000-0000-000000000000'::uuid),
 ('test-decrement', '00000000-0000-0000-0000-000000000000'::uuid),
 ('test-reset-key', '00000000-0000-0000-0000-000000000000'::uuid);
 
-PREPARE insert_individual_record as
-INSERT INTO rate_limit.individual_records (key, session_id)
-VALUES ('test', '00000000-0000-0000-0000-000000000000'::uuid);
-
 SELECT performs_ok(
-    'insert_individual_record',
+    $bd$
+    SELECT ind_increment as count FROM rate_limit.ind_increment('test-count', '00000000-0000-0000-0000-000000000000')
+    $bd$,
     250,
     'inserting record should execute under 250ms'
 );
 
-PREPARE retrieve_count AS
-SELECT count(id) AS count
-FROM rate_limit.individual_records
-WHERE
-    key = 'test-count'
-    AND session_id = '00000000-0000-0000-0000-000000000000'::uuid;
-
 SELECT performs_ok(
-    'retrieve_count',
-    250,
-    'retrieving count should execute under 250ms'
-);
-
-
-PREPARE decrement_records as
-WITH
-rows_to_delete AS (
-    SELECT id FROM rate_limit.individual_records
-    WHERE
-        key = 'test-decrement'
-        AND session_id = '00000000-0000-0000-0000-000000000000'
-    ORDER BY event_time
-    LIMIT 1
-)
-DELETE FROM rate_limit.individual_records
-USING rows_to_delete WHERE individual_records.id = rows_to_delete.id;
-
-SELECT performs_ok(
-    'decrement_records',
+    $bd$
+    SELECT * FROM rate_limit.ind_decrement('test-decrement', '00000000-0000-0000-0000-000000000000');
+    $bd$,
     250,
     'decrementing query execute under 250ms'
 );
 
-PREPARE reset_key as 
-DELETE FROM rate_limit.individual_records
-WHERE
-    key = 'test-reset-key'
-    AND session_id = '00000000-0000-0000-0000-000000000000';
-
-
 SELECT performs_ok(
-    'reset_key',
+    $bd$
+    SELECT * FROM rate_limit.ind_reset_key('test-reset-key', '00000000-0000-0000-0000-000000000000');
+    $bd$,
     250,
     'resetting a key should execute under 250ms'
 );
 
-PREPARE reset_all as 
-DELETE FROM rate_limit.individual_records
-WHERE session_id = '00000000-0000-0000-0000-000000000000';
-
-
 SELECT performs_ok(
-    'reset_all',
+    $bd$
+    SELECT * FROM rate_limit.ind_reset_session('00000000-0000-0000-0000-000000000000');
+    $bd$,
     250,
     'resetting a session should execute under 250ms'
 );
-
-DEALLOCATE insert_individual_record;
-DEALLOCATE retrieve_count;
-DEALLOCATE decrement_records;
-DEALLOCATE reset_key;
-DEALLOCATE reset_all;
 
 -- Finish the tests and clean up.
 SELECT finish FROM finish();

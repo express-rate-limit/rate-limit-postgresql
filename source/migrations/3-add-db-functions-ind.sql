@@ -3,7 +3,7 @@ RETURNS int AS
 $bd$
     INSERT INTO rate_limit.individual_records(key, session_id) VALUES ($1, $2);
 
-    SELECT count(id) AS count FROM rate_limit.individual_records WHERE key = $1 AND session_id = $2;
+    SELECT count(id)::int AS count FROM rate_limit.individual_records WHERE key = $1 AND session_id = $2;
 $bd$
 LANGUAGE SQL;
 
