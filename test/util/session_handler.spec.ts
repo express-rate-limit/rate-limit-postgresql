@@ -148,10 +148,6 @@ describe('Session Handling - Database Interaction', () => {
 		})
 
 		query.onSecondCall().returns({
-			rows: [],
-		})
-
-		query.onThirdCall().returns({
 			rows: [
 				{
 					id: newCreatedSession.id,
@@ -185,7 +181,7 @@ describe('Session Handling - Database Interaction', () => {
 				newCreatedSession.expires_at?.getMilliseconds() <
 				10,
 		)
-		sinon.assert.callCount(query, 3)
+		sinon.assert.callCount(query, 2)
 	})
 
 	it('should generate a new session and insert it in the database if the database session is expired', async () => {
@@ -221,10 +217,6 @@ describe('Session Handling - Database Interaction', () => {
 		})
 
 		query.onSecondCall().returns({
-			rows: [],
-		})
-
-		query.onThirdCall().returns({
 			rows: [
 				{
 					id: newCreatedSession.id,
@@ -258,6 +250,6 @@ describe('Session Handling - Database Interaction', () => {
 				newCreatedSession.expires_at?.getMilliseconds() <
 				10,
 		)
-		sinon.assert.callCount(query, 3)
+		sinon.assert.callCount(query, 2)
 	})
 })
