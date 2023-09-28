@@ -28,7 +28,7 @@ export async function getSession(
 	pool: Pool,
 ): Promise<Session> {
 	let selectSessionQuery =
-		'SELECT id, name_, type_, expires_at FROM rate_limit.sessions WHERE name_ = $1 and type_ = $2 LIMIT 1'
+		'SELECT id, name_, type_, expires_at FROM rate_limit.session_select($1, $2);'
 	try {
 		let result = await pool.query(selectSessionQuery, [name_, type_])
 
@@ -87,24 +87,20 @@ export async function createNewSession(
 		expires_at: calculateNextResetTime(windowMs),
 	}
 
-	let deleteSessionQuery = `DELETE FROM rate_limit.sessions
-        WHERE name_ = $1 and type_ = $2
-        `
-	let insertSessionQuery = `INSERT INTO rate_limit.sessions(name_, type_, expires_at) 
-        SELECT $1, $2, $3 
-        RETURNING id, name_, type_`
+	let resetSessionQuery = `
+		SELECT id, name_, type_ from rate_limit.session_reset($1, $2, $3)
+	`
 
-	let client = await pool.connect()
 	try {
-		await client.query(deleteSessionQuery, [name_, type_])
-		let result = await client.query(insertSessionQuery, [
+		let result = await pool.query(resetSessionQuery, [
 			name_,
 			type_,
 			newSession.expires_at,
 		])
 		newSession.id = result.rows[0].id
-	} finally {
-		client.release()
+	} catch (err) {
+		console.error(err)
+		throw err
 	}
 
 	return newSession

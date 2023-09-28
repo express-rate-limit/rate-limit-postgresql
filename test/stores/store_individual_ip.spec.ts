@@ -61,11 +61,8 @@ describe('Postgres Store Individual IP', () => {
 		let dbCount = 1
 
 		isSessionValidSpy.returns(true)
-		query.onFirstCall().returns({
-			rows: [],
-		})
 
-		query.onSecondCall().returns({
+		query.onFirstCall().returns({
 			rows: [
 				{
 					count: dbCount,
@@ -78,16 +75,12 @@ describe('Postgres Store Individual IP', () => {
 
 		let incrementCount = await testStore.increment('key')
 		sinon.assert.callCount(isSessionValidSpy, 1)
-		sinon.assert.calledWith(
-			query,
-			'INSERT INTO rate_limit.individual_records(key, session_id) VALUES ($1, $2)',
-			['key', newCreatedSession.id],
-		)
-		sinon.assert.calledWith(
-			query,
-			'SELECT count(id) AS count FROM rate_limit.individual_records WHERE key = $1 AND session_id = $2',
-			['key', newCreatedSession.id],
-		)
+		let recordInsertQuery =
+			'SELECT ind_increment as count FROM rate_limit.ind_increment($1, $2)'
+		sinon.assert.calledWith(query, recordInsertQuery, [
+			'key',
+			newCreatedSession.id,
+		])
 		assert.equal(incrementCount.totalHits, dbCount)
 		assert.isTrue(
 			(incrementCount.resetTime?.getMilliseconds() ||
@@ -110,13 +103,7 @@ describe('Postgres Store Individual IP', () => {
 
 		await testStore.decrement('key')
 		let decrementQuery = `
-            WITH 
-            rows_to_delete AS (
-                SELECT id FROM rate_limit.individual_records
-                WHERE key = $1 and session_id = $2 ORDER BY event_time LIMIT 1
-                )
-            DELETE FROM rate_limit.individual_records 
-              USING rows_to_delete WHERE individual_records.id = rows_to_delete.id            
+            SELECT * FROM rate_limit.ind_decrement($1, $2);
         `
 		sinon.assert.calledWith(query, decrementQuery, [
 			'key',
@@ -136,8 +123,7 @@ describe('Postgres Store Individual IP', () => {
 
 		await testStore.resetKey('key')
 		let resetQuery = `
-            DELETE FROM rate_limit.individual_records
-            WHERE key = $1 AND session_id = $2
+            SELECT * FROM rate_limit.ind_reset_key($1, $2);
             `
 		sinon.assert.calledWith(query, resetQuery, ['key', newCreatedSession.id])
 	})
@@ -154,7 +140,7 @@ describe('Postgres Store Individual IP', () => {
 
 		await testStore.resetAll()
 		let resetAllQuery = `
-            DELETE FROM rate_limit.individual_records WHERE session_id = $1
+            SELECT * FROM rate_limit.ind_reset_session($1);
             `
 		sinon.assert.calledWith(query, resetAllQuery, [newCreatedSession.id])
 	})

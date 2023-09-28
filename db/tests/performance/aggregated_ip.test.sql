@@ -26,61 +26,37 @@ VALUES ('test-update', '00000000-0000-0000-0000-000000000000'::uuid, 20),
 ('test-decrement', '00000000-0000-0000-0000-000000000000'::uuid, 30),
 ('test-reset-key', '00000000-0000-0000-0000-000000000000'::uuid, 40);
 
-PREPARE update_aggregation as
-INSERT INTO rate_limit.records_aggregated (key, session_id)
-VALUES ('test-update', '00000000-0000-0000-0000-000000000000')
-ON CONFLICT ON CONSTRAINT unique_session_key DO UPDATE
-SET count = records_aggregated.count + 1
-RETURNING count;
-
 SELECT performs_ok(
-    'update_aggregation',
+    $bd$
+    SELECT agg_increment as count FROM rate_limit.agg_increment('test-update', '00000000-0000-0000-0000-000000000000');
+    $bd$,
     250,
     'inserting record should execute under 250ms'
 );
 
-
-PREPARE decrement_records as
-UPDATE rate_limit.records_aggregated
-SET count = greatest(0, count - 1)
-WHERE
-    key = 'test-decrement'
-    AND session_id = '00000000-0000-0000-0000-000000000000';
-
 SELECT performs_ok(
-    'decrement_records',
+    $bd$
+    SELECT * FROM rate_limit.agg_decrement('test-decrement', '00000000-0000-0000-0000-000000000000');
+    $bd$,
     250,
     'decrementing query execute under 250ms'
 );
 
-PREPARE reset_key as 
-DELETE FROM rate_limit.records_aggregated
-WHERE
-    key = 'test-reset-key'
-    AND session_id = '00000000-0000-0000-0000-000000000000';
-
-
 SELECT performs_ok(
-    'reset_key',
+    $bd$
+    SELECT * FROM rate_limit.agg_reset_key('test-reset-key', '00000000-0000-0000-0000-000000000000')
+    $bd$,
     250,
     'resetting a key should execute under 250ms'
 );
 
-PREPARE reset_all as 
-DELETE FROM rate_limit.records_aggregated
-WHERE session_id = '00000000-0000-0000-0000-000000000000';
-
-
 SELECT performs_ok(
-    'reset_all',
+    $bd$
+    SELECT * FROM rate_limit.agg_reset_session('00000000-0000-0000-0000-000000000000');
+    $bd$,
     250,
     'resetting a session should execute under 250ms'
 );
-
-DEALLOCATE update_aggregation;
-DEALLOCATE decrement_records;
-DEALLOCATE reset_key;
-DEALLOCATE reset_all;
 
 -- Finish the tests and clean up.
 SELECT finish FROM finish();

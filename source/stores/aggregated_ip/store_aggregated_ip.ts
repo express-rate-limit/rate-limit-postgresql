@@ -91,10 +91,7 @@ class PostgresStoreAggregatedIP implements Store {
 	 */
 	async increment(key: string): Promise<ClientRateLimitInfo> {
 		let recordInsertGetRecordsQuery = `
-            INSERT INTO rate_limit.records_aggregated(key, session_id) VALUES ($1, $2)
-            ON CONFLICT ON CONSTRAINT unique_session_key DO UPDATE
-            SET count = records_aggregated.count + 1
-            RETURNING count
+			SELECT agg_increment as count FROM rate_limit.agg_increment($1, $2);
             `
 		if (!isSessionValid(this.session)) {
 			this.session = await getSession(
@@ -132,9 +129,7 @@ class PostgresStoreAggregatedIP implements Store {
 	 */
 	async decrement(key: string): Promise<void> {
 		let decrementQuery = `
-            UPDATE rate_limit.records_aggregated
-            SET count = greatest(0, count-1)
-            WHERE key = $1 and session_id = $2          
+			SELECT * FROM rate_limit.agg_decrement($1, $2);
         `
 
 		try {
@@ -154,8 +149,7 @@ class PostgresStoreAggregatedIP implements Store {
 	 */
 	async resetKey(key: string): Promise<void> {
 		let resetQuery = `
-            DELETE FROM rate_limit.records_aggregated
-            WHERE key = $1 and session_id = $2
+			SELECT * FROM rate_limit.agg_reset_key($1, $2)
             `
 
 		try {
@@ -175,7 +169,7 @@ class PostgresStoreAggregatedIP implements Store {
 	 */
 	async resetAll(): Promise<void> {
 		let resetAllQuery = `
-            DELETE FROM rate_limit.records_aggregated WHERE session_id = $1
+			SELECT * FROM rate_limit.agg_reset_session($1);
             `
 
 		try {

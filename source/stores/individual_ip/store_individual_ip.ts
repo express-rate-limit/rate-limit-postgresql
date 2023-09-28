@@ -91,9 +91,7 @@ class PostgresStoreIndividualIP implements Store {
 	 */
 	async increment(key: string): Promise<ClientRateLimitInfo> {
 		let recordInsertQuery =
-			'INSERT INTO rate_limit.individual_records(key, session_id) VALUES ($1, $2)'
-		let numberOfRecordsQuery =
-			'SELECT count(id) AS count FROM rate_limit.individual_records WHERE key = $1 AND session_id = $2'
+			'SELECT ind_increment as count FROM rate_limit.ind_increment($1, $2)'
 		if (!isSessionValid(this.session)) {
 			this.session = await getSession(
 				this.prefix,
@@ -104,8 +102,7 @@ class PostgresStoreIndividualIP implements Store {
 		}
 
 		try {
-			await this.pool.query(recordInsertQuery, [key, this.session.id])
-			let result = await this.pool.query(numberOfRecordsQuery, [
+			let result = await this.pool.query(recordInsertQuery, [
 				key,
 				this.session.id,
 			])
@@ -131,13 +128,7 @@ class PostgresStoreIndividualIP implements Store {
 	 */
 	async decrement(key: string): Promise<void> {
 		let decrementQuery = `
-            WITH 
-            rows_to_delete AS (
-                SELECT id FROM rate_limit.individual_records
-                WHERE key = $1 and session_id = $2 ORDER BY event_time LIMIT 1
-                )
-            DELETE FROM rate_limit.individual_records 
-              USING rows_to_delete WHERE individual_records.id = rows_to_delete.id            
+            SELECT * FROM rate_limit.ind_decrement($1, $2);
         `
 
 		try {
@@ -157,8 +148,7 @@ class PostgresStoreIndividualIP implements Store {
 	 */
 	async resetKey(key: string): Promise<void> {
 		let resetQuery = `
-            DELETE FROM rate_limit.individual_records
-            WHERE key = $1 AND session_id = $2
+            SELECT * FROM rate_limit.ind_reset_key($1, $2);
             `
 
 		try {
@@ -178,7 +168,7 @@ class PostgresStoreIndividualIP implements Store {
 	 */
 	async resetAll(): Promise<void> {
 		let resetAllQuery = `
-            DELETE FROM rate_limit.individual_records WHERE session_id = $1
+            SELECT * FROM rate_limit.ind_reset_session($1);
             `
 
 		try {
