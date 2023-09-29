@@ -1,11 +1,16 @@
 BEGIN;
 -- Plan the tests.
-SELECT plan(3);
+SELECT plan(4);
 
 INSERT INTO rate_limit.sessions (id, name_, type_)
 SELECT
     '00000000-0000-0000-0000-000000000000'::uuid AS id,
     'dedicated-test'::text AS name_,
+    'individual'::text AS type_
+UNION
+SELECT
+    '00000000-1111-1111-1111-000000000000'::uuid AS id,
+    'dedicated-test-2'::text AS name_,
     'individual'::text AS type_;
 
 INSERT INTO rate_limit.individual_records (key, session_id)
@@ -21,6 +26,16 @@ SELECT results_eq(
     SELECT 1::int AS count;
     $want$,
     'rate_limit.ind_increment returns correct count for new key'
+);
+
+SELECT results_eq(
+    $have$
+    SELECT ind_increment AS count FROM rate_limit.ind_increment('new-key', '00000000-1111-1111-1111-000000000000')
+    $have$,
+    $want$
+    SELECT 1::int AS count;
+    $want$,
+    'rate_limit.ind_increment returns correct count for new key on another session'
 );
 
 SELECT results_eq(
