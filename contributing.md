@@ -68,6 +68,29 @@ rate-limit-postgresql
 │   ├── tsconfig.cjs.json
 │   └── tsconfig.esm.json
 ├── contributing.md
+├── db
+│   ├── cli
+│   │   ├── apply_all_migrations.sh
+│   │   ├── init_db.sh
+│   │   └── run_tests.sh
+│   ├── linting
+│   │   ├── lint.sh
+│   │   └── requirements.txt
+│   └── tests
+│       ├── performance
+│       │   ├── aggregated_ip.test.sql
+│       │   └── individual_ip.test.sql
+│       └── unit
+│           ├── agg_decrement.test.sql
+│           ├── agg_increment.test.sql
+│           ├── agg_reset_key.test.sql
+│           ├── agg_reset_session.test.sql
+│           ├── ind_decrement.test.sql
+│           ├── ind_increment.test.sql
+│           ├── ind_reset_key.test.sql
+│           ├── ind_reset_session.test.sql
+│           ├── session_reset.test.sql
+│           └── session_select.test.sql
 ├── license.md
 ├── package.json
 ├── package-lock.json
@@ -75,7 +98,10 @@ rate-limit-postgresql
 ├── source
 │   ├── index.ts
 │   ├── migrations
-│   │   └── 1-init.sql
+│   │   ├── 1-init.sql
+│   │   ├── 2-add-db-functions-agg.sql
+│   │   ├── 3-add-db-functions-ind.sql
+│   │   └── 4-add-db-functions-sessions.sql
 │   ├── models
 │   │   └── session.ts
 │   ├── stores
@@ -92,11 +118,12 @@ rate-limit-postgresql
 │   │   └── store_individual_ip.spec.ts
 │   └── util
 │       └── session_handler.spec.ts
-└── third_party_licenses
-    ├── dev_detailed.json
-    ├── dev_summary.txt
-    ├── production_detailed.json
-    └── production_summary.txt
+├── third_party_licenses
+│   ├── dev_detailed.json
+│   ├── dev_summary.txt
+│   ├── production_detailed.json
+│   └── production_summary.txt
+└── tsconfig.json
 ```
 
 > The content of `third_party_licenses` is auto-generated.
@@ -120,10 +147,22 @@ applied, etc.
 
 - `tsconfig.*.json`: The Typescript configuration files for this project.
 
+#### `db/`
+
+- `db/cli/*.sh`: Bash scripts used by the database part of the CI pipeline
+- `db/linting/lint.sh`: Bash scripts used for linting SQL files as part of the
+  database CI pipeline
+- `db/linting/.sqlfluff`: Configuration file for the `sqlfluff` linter
+- `db/linting/requirements.txt`: Python dependencies for the `sqlfluff` linter
+- `db/tests/performance/*.test.sql`: Performance tests for the stored procedures
+  (using `pg_tap`)
+- `db/cli/unit/.test.sql`: Unit tests for the stored procedures (using `pg_tap`)
+
 #### `source/`
 
 - `source/migrations/*.sql`: Database migrations that are applied by
-  `postgres-migrations` `source/models/*.ts`: Relevant types (e.g., Session)
+  `postgres-migrations`
+- `source/models/*.ts`: Relevant types (e.g., Session)
 - `source/util/*.ts`: The centralized business logic for handling session
   validity (`session_handler.ts`) and migration handling
   (`migration_handler.ts`)

@@ -71,19 +71,15 @@ describe('Postgres Store Aggregated IP', () => {
 		let testStore = new PostgresStore({}, 'test')
 		testStore.pool = pool
 		testStore.session = newCreatedSession
-
+		let recordInsertGetRecordsQuery = `
+			SELECT agg_increment as count FROM rate_limit.agg_increment($1, $2);
+            `
 		let incrementCount = await testStore.increment('key')
 		sinon.assert.callCount(isSessionValidSpy, 1)
-		sinon.assert.calledWith(
-			query,
-			`
-            INSERT INTO rate_limit.records_aggregated(key, session_id) VALUES ($1, $2)
-            ON CONFLICT ON CONSTRAINT unique_session_key DO UPDATE
-            SET count = records_aggregated.count + 1
-            RETURNING count
-            `,
-			['key', newCreatedSession.id],
-		)
+		sinon.assert.calledWith(query, recordInsertGetRecordsQuery, [
+			'key',
+			newCreatedSession.id,
+		])
 		assert.equal(incrementCount.totalHits, dbCount)
 		assert.isTrue(
 			(incrementCount.resetTime?.getMilliseconds() ||
@@ -106,9 +102,7 @@ describe('Postgres Store Aggregated IP', () => {
 
 		await testStore.decrement('key')
 		let decrementQuery = `
-            UPDATE rate_limit.records_aggregated
-            SET count = greatest(0, count-1)
-            WHERE key = $1 and session_id = $2          
+			SELECT * FROM rate_limit.agg_decrement($1, $2);
         `
 		sinon.assert.calledWith(query, decrementQuery, [
 			'key',
@@ -128,8 +122,7 @@ describe('Postgres Store Aggregated IP', () => {
 
 		await testStore.resetKey('key')
 		let resetQuery = `
-            DELETE FROM rate_limit.records_aggregated
-            WHERE key = $1 and session_id = $2
+			SELECT * FROM rate_limit.agg_reset_key($1, $2)
             `
 		sinon.assert.calledWith(query, resetQuery, ['key', newCreatedSession.id])
 	})
@@ -146,7 +139,7 @@ describe('Postgres Store Aggregated IP', () => {
 
 		await testStore.resetAll()
 		let resetAllQuery = `
-            DELETE FROM rate_limit.records_aggregated WHERE session_id = $1
+			SELECT * FROM rate_limit.agg_reset_session($1);
             `
 		sinon.assert.calledWith(query, resetAllQuery, [newCreatedSession.id])
 	})
