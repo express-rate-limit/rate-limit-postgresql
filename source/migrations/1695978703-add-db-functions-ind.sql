@@ -1,3 +1,5 @@
+--Migration generated Fri, 29 Sep 2023 09:11:43 +0000
+
 CREATE OR REPLACE FUNCTION rate_limit.ind_increment(key_ text, session_id_ uuid)
 RETURNS int AS
 $bd$

@@ -1,3 +1,5 @@
+--Migration generated Fri, 29 Sep 2023 09:12:12 +0000
+
 CREATE OR REPLACE FUNCTION rate_limit.session_select(name_ TEXT, type_ TEXT)
 RETURNS TABLE (id UUID, name_ TEXT, type_ TEXT, expires_at TIMESTAMPTZ) AS
 $bd$
