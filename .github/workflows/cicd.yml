@@ -89,10 +89,14 @@ jobs:
         cpm install TAP::Parser::SourceHandler::pgTAP
       env:
         SHELL: /bin/bash
-    - name: Initialize database and run tests
+    - name: Initialize database
       run: |
         bash db/cli/init_db.sh
+    - name: Apply migrations
+      run: |
         bash db/cli/apply_all_migrations.sh
+    - name: Run tests
+      run: |
         bash db/cli/run_tests.sh
       env:
         DATABASE: test_postgres
