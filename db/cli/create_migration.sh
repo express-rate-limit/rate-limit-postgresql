@@ -1,3 +1,4 @@
 now=$(TZ=UTC date -R)
-unix_time=$(date +%s)
-echo '--Migration generated '$now > source/migrations/$unix_time-$1.sql
+count=$(ls source/migrations/ | wc -l)
+((count++))
+echo '--Migration generated '$now > source/migrations/$count-$1.sql
