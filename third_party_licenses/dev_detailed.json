@@ -1,5 +1,5 @@
 {
-    "@acpr/rate-limit-postgresql@1.3.0": {
+    "@acpr/rate-limit-postgresql@1.3.1": {
         "licenses": "MIT",
         "repository": "https://github.com/adrianprelipcean/express-rate-limit-postgresql",
         "publisher": "Adrian C. Prelipcean"
@@ -597,7 +597,7 @@
         "repository": "https://github.com/stefanpenner/get-caller-file",
         "publisher": "Stefan Penner"
     },
-    "get-func-name@2.0.0": {
+    "get-func-name@2.0.2": {
         "licenses": "MIT",
         "repository": "https://github.com/chaijs/get-func-name",
         "publisher": "Jake Luer",
