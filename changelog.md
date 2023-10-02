@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.1](https://github.com/adrianprelipcean/express-rate-limit-postgresql/releases/tag/v1.3.1)
+
+### Changed
+
+- Upgraded dependencies to fix security issues for
+  [chai-js](https://github.com/express-rate-limit/rate-limit-postgresql/security/dependabot/1)
+  and
+  [sqlfluff](https://github.com/express-rate-limit/rate-limit-postgresql/security/dependabot/2)
+
 ## [1.3.0](https://github.com/adrianprelipcean/express-rate-limit-postgresql/releases/tag/v1.3.0)
 
 ### Changed
