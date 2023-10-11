@@ -26,7 +26,7 @@ and [`clone`](https://github.com/git-guides/git-clone) the repository
 (`adrianprelipcean/express-rate-limit-postgresql`).
 
 Once you have forked and cloned the repository, you can
-[pick out an issue](https://github.com/adrianprelipcean/express-rate-limit-postgresql/issues)
+[pick out an issue](https://github.com/express-rate-limit/express-rate-limit-postgresql/issues)
 you want to fix/implement!
 
 ## Making Changes

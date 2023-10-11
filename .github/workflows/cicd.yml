@@ -134,4 +134,4 @@ jobs:
           files: acpr-rate-limit-postgresql.tgz
           body:
             You can view the changelog
-            [here](https://github.com/adrianprelipcean/express-rate-limit-postgresql/blob/master/changelog.md).
+            [here](https://github.com/express-rate-limit/express-rate-limit-postgresql/blob/master/changelog.md).
