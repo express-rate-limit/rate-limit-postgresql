@@ -8,5 +8,9 @@ export async function applyMigrations(config: any): Promise<void> {
 		host: config['host'] || 'localhost',
 		port: config['port'] || 5432,
 	}
-	await migrate(dbConfig, __dirname + '/migrations')
+	try{
+		await migrate(dbConfig, __dirname + '/migrations')
+	}catch(err){
+		console.error(err); //if we are using typeorm and handling migration in base project, handle the exception
+	}
 }
