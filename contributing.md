@@ -23,7 +23,7 @@ Once you have installed the above, follow
 to
 [`fork`](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks)
 and [`clone`](https://github.com/git-guides/git-clone) the repository
-(`adrianprelipcean/express-rate-limit-postgresql`).
+(`express-rate-limit/rate-limit-postgresql`).
 
 Once you have forked and cloned the repository, you can
 [pick out an issue](https://github.com/express-rate-limit/express-rate-limit-postgresql/issues)
@@ -60,7 +60,6 @@ The library is written in
 of Node. The code is arranged as follows:
 
 ```sh
-rate-limit-postgresql
 ├── changelog.md
 ├── code_of_conduct.md
 ├── configs
@@ -71,6 +70,7 @@ rate-limit-postgresql
 ├── db
 │   ├── cli
 │   │   ├── apply_all_migrations.sh
+│   │   ├── create_migration.sh
 │   │   ├── init_db.sh
 │   │   └── run_tests.sh
 │   ├── linting
@@ -101,23 +101,21 @@ rate-limit-postgresql
 │   │   ├── 1-init.sql
 │   │   ├── 2-add-db-functions-agg.sql
 │   │   ├── 3-add-db-functions-ind.sql
-│   │   └── 4-add-db-functions-sessions.sql
-│   ├── models
-│   │   └── session.ts
+│   │   ├── 4-add-db-functions-sessions.sql
+│   │   ├── 5-hotfix-update-constraints.sql
+│   │   ├── 6-move-session-to-db-agg.sql
+│   │   └── 7-move-session-to-db-agg.sql
 │   ├── stores
 │   │   ├── aggregated_ip
 │   │   │   └── store_aggregated_ip.ts
 │   │   └── individual_ip
 │   │       └── store_individual_ip.ts
 │   └── util
-│       ├── migration_handler.ts
-│       └── session_handler.ts
+│       └── migration_handler.ts
 ├── test
-│   ├── stores
-│   │   ├── store_aggregated_ip.spec.ts
-│   │   └── store_individual_ip.spec.ts
-│   └── util
-│       └── session_handler.spec.ts
+│   └── stores
+│       ├── store_aggregated_ip.spec.ts
+│       └── store_individual_ip.spec.ts
 ├── third_party_licenses
 │   ├── dev_detailed.json
 │   ├── dev_summary.txt
@@ -222,11 +220,10 @@ changes to GitHub) your commits. To push your changes to your fork:
 ```
 
 If there are changes made to the `master` branch of the
-`adrianprelipcean/express-rate-limit-postgresql` repository, you may wish to
+`express-rate-limit/rate-limit-postgresql` repository, you may wish to
 [`rebase`](https://docs.github.com/en/get-started/using-git/about-git-rebase)
 your branch to include those changes. To rebase, or include the changes from the
-`master` branch of the `adrianprelipcean/express-rate-limit-postgresql`
-repository:
+`master` branch of the `express-rate-limit/rate-limit-postgresql` repository:
 
 ```
 > git fetch upstream master
@@ -234,8 +231,8 @@ repository:
 ```
 
 This will automatically add the changes from `master` branch of the
-`adrianprelipcean/express-rate-limit-postgresql` repository to the current
-branch. If you encounter any merge conflicts, follow
+`express-rate-limit/rate-limit-postgresql` repository to the current branch. If
+you encounter any merge conflicts, follow
 [this guide](https://docs.github.com/en/get-started/using-git/resolving-merge-conflicts-after-a-git-rebase)
 to resolve them.
 
