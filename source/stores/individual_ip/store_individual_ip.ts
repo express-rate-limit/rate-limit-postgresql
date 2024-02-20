@@ -1,8 +1,6 @@
 import { Store, Options, ClientRateLimitInfo } from 'express-rate-limit'
 
 import Pool from 'pg-pool'
-import { Session } from '../../models/session'
-import { getSession, isSessionValid } from '../../util/session_handler'
 import { applyMigrations } from '../../util/migration_handler'
 
 /**
@@ -33,16 +31,6 @@ class PostgresStoreIndividualIP implements Store {
 	 * The type of session (as an enum)
 	 */
 	SESSION_TYPE: string = 'individual'
-
-	/**
-	 * The session instance persisted on the client side.
-	 */
-	session: Session = {
-		id: 'init',
-		name: 'init',
-		type: this.SESSION_TYPE,
-		expires_at: undefined,
-	}
 
 	/**
 	 * The duration of time before which all hit counts are reset (in milliseconds).
@@ -91,24 +79,20 @@ class PostgresStoreIndividualIP implements Store {
 	 */
 	async increment(key: string): Promise<ClientRateLimitInfo> {
 		let recordInsertQuery =
-			'SELECT ind_increment as count FROM rate_limit.ind_increment($1, $2)'
-		if (!isSessionValid(this.session)) {
-			this.session = await getSession(
-				this.prefix,
-				this.SESSION_TYPE,
-				this.windowMs,
-				this.pool,
-			)
-		}
+			'SELECT * FROM rate_limit.ind_increment($1, $2, $3) AS (count int, expires_at timestamptz);'
 
 		try {
 			let result = await this.pool.query(recordInsertQuery, [
 				key,
-				this.session.id,
+				this.prefix,
+				this.windowMs,
 			])
 			let totalHits: number = 0
-			if (result.rows.length > 0) totalHits = parseInt(result.rows[0].count)
-			let resetTime: Date | undefined = this.session.expires_at
+			let resetTime: Date | undefined = undefined
+			if (result.rows.length > 0) {
+				totalHits = parseInt(result.rows[0].count)
+				resetTime = result.rows[0].expires_at
+			}
 			return {
 				totalHits,
 				resetTime,
@@ -132,7 +116,7 @@ class PostgresStoreIndividualIP implements Store {
         `
 
 		try {
-			await this.pool.query(decrementQuery, [key, this.session.id])
+			await this.pool.query(decrementQuery, [key, this.prefix])
 		} catch (err) {
 			console.error(err)
 			throw err
@@ -152,7 +136,7 @@ class PostgresStoreIndividualIP implements Store {
             `
 
 		try {
-			await this.pool.query(resetQuery, [key, this.session.id])
+			await this.pool.query(resetQuery, [key, this.prefix])
 		} catch (err) {
 			console.error(err)
 			throw err
@@ -172,7 +156,7 @@ class PostgresStoreIndividualIP implements Store {
             `
 
 		try {
-			await this.pool.query(resetAllQuery, [this.session.id])
+			await this.pool.query(resetAllQuery, [this.prefix])
 		} catch (err) {
 			console.error(err)
 			throw err
