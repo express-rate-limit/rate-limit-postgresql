@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0](https://github.com/express-rate-limit/express-rate-limit-postgresql/releases/tag/v1.4.0)
+
+### Changed
+
+- Session handling is now done on the database layer to prevent concurrency
+  issues.
+
 ## [1.3.2](https://github.com/express-rate-limit/express-rate-limit-postgresql/releases/tag/v1.3.2)
 
 ### Added
