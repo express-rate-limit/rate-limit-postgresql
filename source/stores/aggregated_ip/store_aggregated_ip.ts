@@ -23,11 +23,6 @@ class PostgresStoreAggregatedIP implements Store {
 	prefix: string
 
 	/**
-	 * The type of session (as an enum)
-	 */
-	SESSION_TYPE: string = 'aggregated'
-
-	/**
 	 * The database connection pool.
 	 */
 	pool: any
@@ -36,11 +31,6 @@ class PostgresStoreAggregatedIP implements Store {
 	 * The duration of time before which all hit counts are reset (in milliseconds).
 	 */
 	windowMs!: number
-
-	/**
-	 * The time at which all hit counts will be reset.
-	 */
-	resetTime!: Date
 
 	/**
 	 * @constructor for `PostgresStoreAggregatedIP`.

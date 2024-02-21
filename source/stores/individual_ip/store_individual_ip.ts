@@ -28,19 +28,9 @@ class PostgresStoreIndividualIP implements Store {
 	prefix: string
 
 	/**
-	 * The type of session (as an enum)
-	 */
-	SESSION_TYPE: string = 'individual'
-
-	/**
 	 * The duration of time before which all hit counts are reset (in milliseconds).
 	 */
 	windowMs!: number
-
-	/**
-	 * The time at which all hit counts will be reset.
-	 */
-	resetTime!: Date
 
 	/**
 	 * @constructor for `PostgresStoreIndividualIP`.
