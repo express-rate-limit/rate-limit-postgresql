@@ -25,7 +25,7 @@
     }
   },
   "scripts": {
-    "test": "cross-env TS_NODE_PROJECT='./configs/tsconfig.cjs.json' mocha",
+    "test": "ts-mocha src/**/*.spec.ts",
     "clean": "rm -rf ./dist",
     "build": "npm run clean && pkgroll --src source/ && cp source/migrations/ dist/ -r && npm run mjs-fix-prepend",
     "lint": "prettier --check .",
@@ -69,7 +69,6 @@
     "postgres-migrations": "5.3.0"
   },
   "devDependencies": {
-    "express-rate-limit": "7.0.1",
     "@express-rate-limit/prettier": "1.1.1",
     "@express-rate-limit/tsconfig": "1.0.2",
     "@types/chai": "4.3.6",
@@ -77,7 +76,7 @@
     "@types/mocha": "10.0.1",
     "@types/sinon": "10.0.16",
     "chai": "4.3.8",
-    "cross-env": "7.0.3",
+    "express-rate-limit": "7.0.1",
     "global-jsdom": "9.1.0",
     "husky": "8.0.3",
     "license-checker-rseidelsohn": "4.2.7",
@@ -86,6 +85,7 @@
     "pkgroll": "1.11.0",
     "prettier": "3.0.3",
     "sinon": "16.0.0",
+    "ts-mocha": "10.0.0",
     "ts-node": "10.9.1",
     "typescript": "5.2.2"
   },

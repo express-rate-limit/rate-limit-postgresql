@@ -1,9 +1,6 @@
 {
 	"extension": ["ts"],
+	"loader": "ts-node/esm",
 	"spec": "test/**/*.spec.ts",
-	"node-option": [
-		"experimental-specifier-resolution=node",
-		"loader=ts-node/esm"
-	],
 	"recursive": true
 }
