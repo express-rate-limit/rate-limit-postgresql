@@ -28,7 +28,7 @@ VALUES ('test-count', '00000000-0000-0000-0000-000000000000'::uuid),
 
 SELECT performs_ok(
     $bd$
-    SELECT ind_increment as count FROM rate_limit.ind_increment('test-count', '00000000-0000-0000-0000-000000000000')
+    SELECT * FROM rate_limit.ind_increment('test-count', 'dedicated-test', 1000) AS (count int, expires_at timestamptz);
     $bd$,
     250,
     'inserting record should execute under 250ms'
@@ -36,7 +36,7 @@ SELECT performs_ok(
 
 SELECT performs_ok(
     $bd$
-    SELECT * FROM rate_limit.ind_decrement('test-decrement', '00000000-0000-0000-0000-000000000000');
+    SELECT * FROM rate_limit.ind_decrement('test-decrement', 'dedicated-test');
     $bd$,
     250,
     'decrementing query execute under 250ms'
@@ -44,7 +44,7 @@ SELECT performs_ok(
 
 SELECT performs_ok(
     $bd$
-    SELECT * FROM rate_limit.ind_reset_key('test-reset-key', '00000000-0000-0000-0000-000000000000');
+    SELECT * FROM rate_limit.ind_reset_key('test-reset-key', 'dedicated-test');
     $bd$,
     250,
     'resetting a key should execute under 250ms'
@@ -52,7 +52,7 @@ SELECT performs_ok(
 
 SELECT performs_ok(
     $bd$
-    SELECT * FROM rate_limit.ind_reset_session('00000000-0000-0000-0000-000000000000');
+    SELECT * FROM rate_limit.ind_reset_session('dedicated-test');
     $bd$,
     250,
     'resetting a session should execute under 250ms'
