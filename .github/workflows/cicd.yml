@@ -12,9 +12,9 @@ jobs:
       matrix:
         node-version: [16.x, lts/*, latest]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm ci
@@ -27,15 +27,15 @@ jobs:
       matrix:
         python-version: ["3.10"]
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
     - name: Cache requirements
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.cache/pip
         key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
@@ -72,7 +72,7 @@ jobs:
           - 5432:5432
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Setup Perl
       id: perl
       uses: shogo82148/actions-setup-perl@v1
@@ -80,7 +80,7 @@ jobs:
         perl-version: '5.34'
         install-modules-with: cpm
     - name: Cache CPAN Modules
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: local
         key: perl-${{ steps.perl.outputs.perl-hash }}
@@ -113,8 +113,8 @@ jobs:
       id-token: write
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+        uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: lts/*
           registry-url: https://registry.npmjs.org/
@@ -129,7 +129,7 @@ jobs:
           npm pack
           mv acpr-rate-limit-postgresql-*.tgz acpr-rate-limit-postgresql.tgz
       - name: Create a Github release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: acpr-rate-limit-postgresql.tgz
           body:
