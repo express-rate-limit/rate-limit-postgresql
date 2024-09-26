@@ -82,7 +82,7 @@
     "license-checker-rseidelsohn": "4.2.7",
     "lint-staged": "14.0.1",
     "mocha": "10.2.0",
-    "pkgroll": "1.11.0",
+    "pkgroll": "2.5.0",
     "prettier": "3.0.3",
     "sinon": "16.0.0",
     "ts-mocha": "10.0.0",
