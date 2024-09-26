@@ -80,7 +80,7 @@
     "global-jsdom": "9.1.0",
     "husky": "8.0.3",
     "license-checker-rseidelsohn": "4.2.7",
-    "lint-staged": "14.0.1",
+    "lint-staged": "15.2.10",
     "mocha": "10.2.0",
     "pkgroll": "1.11.0",
     "prettier": "3.0.3",
