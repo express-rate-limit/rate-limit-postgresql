@@ -81,7 +81,7 @@
     "husky": "8.0.3",
     "license-checker-rseidelsohn": "4.2.7",
     "lint-staged": "15.2.10",
-    "mocha": "10.2.0",
+    "mocha": "10.8.2",
     "pkgroll": "2.5.0",
     "prettier": "3.0.3",
     "sinon": "16.0.0",
