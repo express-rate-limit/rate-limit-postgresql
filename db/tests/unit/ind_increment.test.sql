@@ -19,7 +19,7 @@ SELECT
     '00000000-2222-2222-2222-000000000000'::uuid AS id,
     'dedicated-test-expired'::text AS name_,
     'individual'::text AS type_,
-    '2023-01-01 08:00:00+0'::timestamptz AS expires_at;;
+    '2023-01-01 08:00:00+0'::timestamptz AS expires_at;
 
 INSERT INTO rate_limit.individual_records (key, session_id)
 SELECT
