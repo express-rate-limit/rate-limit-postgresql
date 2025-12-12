@@ -81,11 +81,11 @@
     "husky": "8.0.3",
     "license-checker-rseidelsohn": "4.2.7",
     "lint-staged": "15.2.10",
-    "mocha": "10.8.2",
+    "mocha": "11.7.5",
     "pkgroll": "2.12.1",
     "prettier": "3.0.3",
     "sinon": "16.0.0",
-    "ts-mocha": "10.0.0",
+    "ts-mocha": "11.1.0",
     "ts-node": "10.9.1",
     "typescript": "5.2.2"
   },
