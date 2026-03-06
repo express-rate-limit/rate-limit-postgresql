@@ -77,7 +77,7 @@
     "@types/sinon": "10.0.16",
     "chai": "4.3.8",
     "express-rate-limit": "7.4.0",
-    "global-jsdom": "9.1.0",
+    "global-jsdom": "9.2.0",
     "husky": "8.0.3",
     "license-checker-rseidelsohn": "4.2.7",
     "lint-staged": "15.2.10",
