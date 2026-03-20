@@ -4,7 +4,7 @@ import { assert } from 'chai'
 import { Pool } from 'pg'
 import sinon, { SinonMock, SinonStub } from 'sinon'
 import { PostgresStore } from '../../source'
-const migration_handler = require('../../source/util/migration_handler')
+import * as migration_handler from '../../source/util/migration_handler'
 
 class ClientMock {
 	query() {}
