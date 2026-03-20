@@ -154,11 +154,6 @@
         "repository": "https://github.com/rollup/rollup",
         "publisher": "Lukas Taegert-Atkinson"
     },
-    "@rollup/rollup-linux-x64-musl@4.59.0": {
-        "licenses": "MIT",
-        "repository": "https://github.com/rollup/rollup",
-        "publisher": "Lukas Taegert-Atkinson"
-    },
     "@sinonjs/commons@3.0.1": {
         "licenses": "BSD-3-Clause",
         "repository": "https://github.com/sinonjs/commons"
@@ -193,15 +188,11 @@
         "licenses": "MIT",
         "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped"
     },
-    "@types/chai@5.2.3": {
+    "@types/chai@4.3.6": {
         "licenses": "MIT",
         "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped"
     },
     "@types/connect@3.4.38": {
-        "licenses": "MIT",
-        "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped"
-    },
-    "@types/deep-eql@4.0.2": {
         "licenses": "MIT",
         "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped"
     },
@@ -312,7 +303,7 @@
         "publisher": "Sindre Sorhus",
         "email": "sindresorhus@gmail.com"
     },
-    "assertion-error@2.0.1": {
+    "assertion-error@1.1.0": {
         "licenses": "MIT",
         "repository": "https://github.com/chaijs/assertion-error",
         "publisher": "Jake Luer",
@@ -357,7 +348,7 @@
         "publisher": "Sindre Sorhus",
         "email": "sindresorhus@gmail.com"
     },
-    "chai@6.2.2": {
+    "chai@4.5.0": {
         "licenses": "MIT",
         "repository": "https://github.com/chaijs/chai",
         "publisher": "Jake Luer",
@@ -366,6 +357,12 @@
     "chalk@4.1.2": {
         "licenses": "MIT",
         "repository": "https://github.com/chalk/chalk"
+    },
+    "check-error@1.0.3": {
+        "licenses": "MIT",
+        "repository": "https://github.com/chaijs/check-error",
+        "publisher": "Jake Luer",
+        "email": "jake@alogicalparadox.com"
     },
     "chokidar@4.0.3": {
         "licenses": "MIT",
@@ -457,6 +454,12 @@
         "repository": "https://github.com/MikeMcl/decimal.js",
         "publisher": "Michael Mclaughlin",
         "email": "M8ch88l@gmail.com"
+    },
+    "deep-eql@4.1.4": {
+        "licenses": "MIT",
+        "repository": "https://github.com/chaijs/deep-eql",
+        "publisher": "Jake Luer",
+        "email": "jake@alogicalparadox.com"
     },
     "deepmerge@4.3.1": {
         "licenses": "MIT",
@@ -579,6 +582,12 @@
         "repository": "https://github.com/sindresorhus/get-east-asian-width",
         "publisher": "Sindre Sorhus",
         "email": "sindresorhus@gmail.com"
+    },
+    "get-func-name@2.0.2": {
+        "licenses": "MIT",
+        "repository": "https://github.com/chaijs/get-func-name",
+        "publisher": "Jake Luer",
+        "email": "jake@alogicalparadox.com"
     },
     "glob-parent@5.1.2": {
         "licenses": "ISC",
@@ -766,6 +775,12 @@
         "publisher": "Sindre Sorhus",
         "email": "sindresorhus@gmail.com"
     },
+    "loupe@2.3.7": {
+        "licenses": "MIT",
+        "repository": "https://github.com/chaijs/loupe",
+        "publisher": "Veselin Todorov",
+        "email": "hi@vesln.com"
+    },
     "lru-cache@10.4.3": {
         "licenses": "ISC",
         "repository": "https://github.com/isaacs/node-lru-cache",
@@ -905,6 +920,12 @@
         "repository": "https://github.com/isaacs/path-scurry",
         "publisher": "Isaac Z. Schlueter",
         "email": "i@izs.me"
+    },
+    "pathval@1.1.1": {
+        "licenses": "MIT",
+        "repository": "https://github.com/chaijs/pathval",
+        "publisher": "Veselin Todorov",
+        "email": "hi@vesln.com"
     },
     "picocolors@1.1.1": {
         "licenses": "ISC",
@@ -1225,6 +1246,12 @@
         "repository": "https://github.com/notatestuser/treeify",
         "publisher": "Luke Plaster",
         "email": "notatestuser@gmail.com"
+    },
+    "ts-mocha@11.1.0": {
+        "licenses": "MIT",
+        "repository": "https://github.com/piotrwitek/ts-mocha",
+        "publisher": "Piotr Witek",
+        "email": "piotrek.witek@gmail.com"
     },
     "ts-node@10.9.2": {
         "licenses": "MIT",
