@@ -4,12 +4,12 @@
         "repository": "https://github.com/express-rate-limit/rate-limit-postgresql",
         "publisher": "Adrian C. Prelipcean"
     },
-    "@asamuzakjp/css-color@5.0.1": {
+    "@asamuzakjp/css-color@5.1.1": {
         "licenses": "MIT",
         "repository": "https://github.com/asamuzaK/cssColor",
         "publisher": "asamuzaK"
     },
-    "@asamuzakjp/dom-selector@7.0.3": {
+    "@asamuzakjp/dom-selector@7.0.4": {
         "licenses": "MIT",
         "repository": "https://github.com/asamuzaK/domSelector",
         "publisher": "asamuzaK"
@@ -46,7 +46,7 @@
         "licenses": "MIT",
         "repository": "https://github.com/csstools/postcss-plugins"
     },
-    "@csstools/css-syntax-patches-for-csstree@1.1.1": {
+    "@csstools/css-syntax-patches-for-csstree@1.1.2": {
         "licenses": "MIT-0",
         "repository": "https://github.com/csstools/postcss-plugins"
     },
@@ -149,7 +149,7 @@
         "publisher": "Rich Harris",
         "email": "richard.a.harris@gmail.com"
     },
-    "@rollup/rollup-linux-x64-gnu@4.59.0": {
+    "@rollup/rollup-linux-x64-gnu@4.60.1": {
         "licenses": "MIT",
         "repository": "https://github.com/rollup/rollup",
         "publisher": "Lukas Taegert-Atkinson"
@@ -326,7 +326,7 @@
         "repository": "https://github.com/lojjic/bidi-js",
         "publisher": "Jason Johnston"
     },
-    "brace-expansion@2.0.2": {
+    "brace-expansion@2.0.3": {
         "licenses": "MIT",
         "repository": "https://github.com/juliangruber/brace-expansion",
         "publisher": "Julian Gruber",
@@ -465,7 +465,7 @@
         "licenses": "MIT",
         "repository": "https://github.com/TehShrike/deepmerge"
     },
-    "diff@8.0.3": {
+    "diff@8.0.4": {
         "licenses": "BSD-3-Clause",
         "repository": "https://github.com/kpdecker/jsdiff"
     },
@@ -932,12 +932,12 @@
         "repository": "https://github.com/alexeyraspopov/picocolors",
         "publisher": "Alexey Raspopov"
     },
-    "picomatch@2.3.1": {
+    "picomatch@2.3.2": {
         "licenses": "MIT",
         "repository": "https://github.com/micromatch/picomatch",
         "publisher": "Jon Schlinkert"
     },
-    "picomatch@4.0.3": {
+    "picomatch@4.0.4": {
         "licenses": "MIT",
         "repository": "https://github.com/micromatch/picomatch",
         "publisher": "Jon Schlinkert"
@@ -1029,7 +1029,7 @@
         "publisher": "Rich Harris",
         "email": "richard.a.harris@gmail.com"
     },
-    "rollup@4.59.0": {
+    "rollup@4.60.1": {
         "licenses": "MIT",
         "repository": "https://github.com/rollup/rollup",
         "publisher": "Rich Harris"
@@ -1051,7 +1051,7 @@
         "repository": "https://github.com/npm/node-semver",
         "publisher": "GitHub Inc."
     },
-    "serialize-javascript@7.0.4": {
+    "serialize-javascript@7.0.5": {
         "licenses": "BSD-3-Clause",
         "repository": "https://github.com/yahoo/serialize-javascript",
         "publisher": "Eric Ferraiuolo",
@@ -1214,12 +1214,12 @@
         "repository": "https://github.com/tinylibs/tinyexec",
         "publisher": "James Garbutt"
     },
-    "tldts-core@7.0.26": {
+    "tldts-core@7.0.27": {
         "licenses": "MIT",
         "repository": "https://github.com/remusao/tldts",
         "publisher": "Rémi Berson"
     },
-    "tldts@7.0.26": {
+    "tldts@7.0.27": {
         "licenses": "MIT",
         "repository": "https://github.com/remusao/tldts",
         "publisher": "Rémi Berson"
@@ -1276,7 +1276,7 @@
         "repository": "https://github.com/microsoft/TypeScript",
         "publisher": "Microsoft Corp."
     },
-    "undici@7.24.5": {
+    "undici@7.24.6": {
         "licenses": "MIT",
         "repository": "https://github.com/nodejs/undici"
     },
@@ -1362,7 +1362,7 @@
         "publisher": "Ben Coe",
         "email": "bencoe@gmail.com"
     },
-    "yaml@2.8.2": {
+    "yaml@2.8.3": {
         "licenses": "ISC",
         "repository": "https://github.com/eemeli/yaml",
         "publisher": "Eemeli Aro",
