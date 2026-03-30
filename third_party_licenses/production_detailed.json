@@ -12,7 +12,7 @@
         "licenses": "MIT",
         "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped"
     },
-    "@types/pg@8.18.0": {
+    "@types/pg@8.20.0": {
         "licenses": "MIT",
         "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped"
     },
@@ -277,7 +277,7 @@
         "licenses": "MIT",
         "repository": "https://github.com/pillarjs/parseurl"
     },
-    "path-to-regexp@8.3.0": {
+    "path-to-regexp@8.4.0": {
         "licenses": "MIT",
         "repository": "https://github.com/pillarjs/path-to-regexp"
     },
